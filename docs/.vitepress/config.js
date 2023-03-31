@@ -3,7 +3,6 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
 	// base: '/doc/', // 根据部署的位置修改base 比如在服务器中的 nginx/html/doc 目录下 则base应为 /doc/  若在nginx/html下  则为 /
 	base: '/', 
-	base: '/',
 	lastUpdated: true,
 	title: 'CHT  frontend-study', // 站点的标题 并显示在导航栏中。
 	description: '自定义的 description', // 站点的描述  这将作为<meta>标记渲染在页面HTML中。
@@ -58,20 +57,6 @@ export default defineConfig({
 					collapsed: true // 是否默认折叠 
 				},
 			],
-				
-			// '/study/': [
-			// 	{
-			// 		text: 'study',
-			// 		items: [
-			// 			{ text: 'mapboxgl', link: '/study/mapboxgl' },
-			// 			{ text: 'vue', link: '/study/vue' },
-			// 			{ text: 'linux', link: '/study/linux' },
-			// 			{ text: 'css', link: '/study/css' },
-			// 		],
-			// 		collapsible: true, // 菜单是否为可折叠的
-			// 		collapsed: true // 是否默认折叠 
-			// 	}
-			// ],
 			'/notes/': [
 				{
 					text: 'notes',
@@ -92,7 +77,9 @@ export default defineConfig({
 			message: 'Released under the MIT License.',
 			copyright: 'Copyright © 2019-present Evan You'
 		},
-		 markdown: {
+		markdown: {
+			// 显示行号
+			// lineNumbers: true,
 			// options for markdown-it-anchor
 			anchor: { permalink: false },
 

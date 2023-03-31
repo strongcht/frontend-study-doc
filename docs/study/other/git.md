@@ -1,4 +1,19 @@
-## 1.Git 指令
+## 1. Git 构建远程仓库
+
+> 1. 需要注册 github [GitHub 官网](https://github.com)
+> 2. 安装 git [地址](https://git-scm.com/downloads)
+
+```
+echo "# cesium" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin 远程仓库地址
+git push -u origin master
+```
+
+## 2.Git 指令
 
 ```
  查看、添加、提交、删除、找回，重置修改文件
