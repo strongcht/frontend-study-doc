@@ -15,4 +15,8 @@
 
 `https://github.com/chenhongtao-cht/frontend-study-doc.git`
 
-## 使用需要构建修改 docs/.vitepress/config.js 中的 base: '/',
+## 在线地址
+
+demo(http://1.12.234.248/doc/)
+
+注意: 使用需要构建修改 docs/.vitepress/config.js 中的 base: '/',
