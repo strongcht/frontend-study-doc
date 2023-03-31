@@ -1,8 +1,8 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
-	// base: '/doc/', // 根据部署的位置修改base 比如在服务器中的 nginx/html/doc 目录下 则base应为 /doc/  若在nginx/html下  则为 /
-	base: '/', 
+	base: '/doc/', // 根据部署的位置修改base 比如在服务器中的 nginx/html/doc 目录下 则base应为 /doc/  若在nginx/html下  则为 /
+	// base: '/', 
 	lastUpdated: true,
 	title: 'CHT  frontend-study', // 站点的标题 并显示在导航栏中。
 	description: '自定义的 description', // 站点的描述  这将作为<meta>标记渲染在页面HTML中。
@@ -69,7 +69,7 @@ export default defineConfig({
 			],
 		},
 		// 社交链接
-		socialLinks: [{ icon: "github", link: "https://github.com" }],
+		socialLinks: [{ icon: "github", link: "https://github.com/chenhongtao-cht/frontend-study-doc.git" }],
 		// 上下翻页
 		// docFooter: { prev: '上一篇', next: '下一篇' },
 		// 页脚
