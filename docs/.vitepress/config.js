@@ -18,10 +18,133 @@ export default defineConfig({
 		// 侧边栏配置
 		sidebar: {
 			'/study/': [{
-					text: 'vue学习笔记',
+					text: 'vue2学习笔记',
 					items: [
-						{ text: 'vue2', link: '/study/vue/vue2' },
-						{ text: 'vue3', link: '/study/vue/vue3' },
+						{ text: '介绍', link: '/study/vue/vue2/introduction/README' },
+						{ text: '源码目录设计和架构设计', link: '/study/vue/vue2/design/README' },
+						{
+							text: 'Rollup构建版本',
+							items: [
+								{ text: 'Rollup基础知识', link: '/study/vue/vue2/rollup/README' },
+								{ text: 'Vue中的Rollup构建', link: '/study/vue/vue2/rollup/vue' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '从入口到构造函数整体流程',
+							items: [
+								{ text: '整体流程', link: '/study/vue/vue2/entry/README' },
+								{ text: 'initGlobalAPI', link: '/study/vue/vue2/entry/global' },
+								{ text: 'initMixin流程', link: '/study/vue/vue2/entry/init' },
+								{ text: 'stateMixin流程', link: '/study/vue/vue2/entry/state' },
+								{ text: 'eventsMixin流程', link: '/study/vue/vue2/entry/events' },
+								{ text: 'lifecycleMixin流程', link: '/study/vue/vue2/entry/lifecycle' },
+								{ text: 'renderMixin流程', link: '/study/vue/vue2/entry/render' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '响应式原理',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue2/reactive/README' },
+								{ text: '前置核心概念', link: '/study/vue/vue2/reactive/prepare' },
+								{ text: 'props处理', link: '/study/vue/vue2/reactive/props' },
+								{ text: 'methods处理', link: '/study/vue/vue2/reactive/methods' },
+								{ text: 'data处理', link: '/study/vue/vue2/reactive/data' },
+								{ text: 'computed处理', link: '/study/vue/vue2/reactive/computed' },
+								{ text: 'watch处理', link: '/study/vue/vue2/reactive/watch' },
+								{ text: '深入响应式原理', link: '/study/vue/vue2/reactive/reactive' },
+								{ text: '依赖收集', link: '/study/vue/vue2/reactive/dep' },
+								{ text: '派发更新', link: '/study/vue/vue2/reactive/notify' },
+								{ text: 'nextTick实现原理', link: '/study/vue/vue2/reactive/nexttick' },
+								{ text: '变化侦测注意事项', link: '/study/vue/vue2/reactive/problem' },
+								{ text: '变化侦测API实现', link: '/study/vue/vue2/reactive/api' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '虚拟DOM和VNode',
+							items: [
+								{ text: '虚拟DOM', link: '/study/vue/vue2/dom/README' },
+								{ text: 'VNode介绍', link: '/study/vue/vue2/dom/vnode' },
+								{ text: 'Diff算法', link: '/study/vue/vue2/dom/diff' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '组件化',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue2/component/README' },
+								{ text: '$mount方法', link: '/study/vue/vue2/component/mount' },
+								{ text: 'render和renderProxy', link: '/study/vue/vue2/component/render' },
+								{ text: 'createElement', link: '/study/vue/vue2/component/createElement' },
+								{ text: 'createComponent', link: '/study/vue/vue2/component/createComponent' },
+								{ text: '合并策略', link: '/study/vue/vue2/component/merge' },
+								{ text: 'update和patch', link: '/study/vue/vue2/component/patch' },
+								{ text: '组件生命周期', link: '/study/vue/vue2/component/lifecycle' },
+								{ text: '组件注册', link: '/study/vue/vue2/component/register' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '编译原理',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue2/compile/README' },
+								{ text: 'compileToFunctions', link: '/study/vue/vue2/compile/compileToFunctions' },
+								{ text: 'parse模板解析', link: '/study/vue/vue2/compile/parse' },
+								{ text: 'optimize优化', link: '/study/vue/vue2/compile/optimize' },
+								{ text: 'codegen代码生成', link: '/study/vue/vue2/compile/codegen' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: '扩展',
+							items: [
+								{ text: '扩展', link: '/study/vue/vue2/expand/README' },
+								{ text: 'directive指令', link: '/study/vue/vue2/expand/directive' },
+								{ text: 'filter过滤器', link: '/study/vue/vue2/expand/filter' },
+								{ text: 'event事件处理', link: '/study/vue/vue2/expand/event' },
+								{ text: 'v-model', link: '/study/vue/vue2/expand/vmodel' },
+								{ text: '插槽', link: '/study/vue/vue2/expand/slot' },
+								{ text: 'Keep-Alive', link: '/study/vue/vue2/expand/keep-alive' },
+								{ text: 'Transition', link: '/study/vue/vue2/expand/transition' },
+								{ text: 'Transition-Group', link: '/study/vue/vue2/expand/transition-group' },
+								{ text: 'Vue.use插件机制', link: '/study/vue/vue2/expand/plugin' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: 'Vue-Router',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue2/router/README' },
+								{ text: '路由安装', link: '/study/vue/vue2/router/install' },
+								{ text: 'matcher介绍', link: '/study/vue/vue2/router/matcher' },
+								{ text: '路由切换', link: '/study/vue/vue2/router/change' },
+								{ text: '内置组件', link: '/study/vue/vue2/router/components' },
+								{ text: '路由hooks钩子函数', link: '/study/vue/vue2/router/hooks' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: 'Vuex',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue2/vuex/README' },
+								{ text: 'Vuex安装', link: '/study/vue/vue2/vuex/install' },
+								{ text: 'Vuex初始化', link: '/study/vue/vue2/vuex/init' },
+								{ text: 'Vuex辅助API', link: '/study/vue/vue2/vuex/utils' },
+								{ text: 'Store实例API', link: '/study/vue/vue2/vuex/api' },
+							],
+							collapsible: true, // 菜单是否为可折叠的
+							collapsed: true // 是否默认折叠 
+						},
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
