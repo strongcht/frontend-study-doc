@@ -170,7 +170,7 @@ new Content();
 
 ## Webpack 初体验
 
-不建议跟随此小结一起安装，此次示例仅仅作为一个例子，详细学习步骤请直接阅读下一章节[安装](/webpack/#安装)
+<!-- 不建议跟随此小结一起安装，此次示例仅仅作为一个例子，详细学习步骤请直接阅读下一章节[安装](/webpack/#安装) -->
 
 #### 生成 package.json 文件
 
@@ -237,6 +237,6 @@ $ npx webpack index.js
 
 打包结果：
 
-![webpack打包结果](../../images/webpack/2.png)
+![webpack打包结果](/images/webpack/2.png)
 
 正如上面你所看到的那样，网页正确显示了我们期待的结果，这也是 Webpack 能为我们解决问题的一小部分能力，下面将正式开始介绍 Webpack 。
