@@ -371,3 +371,18 @@ function unregisterEventListener() {
 }
 </script>
 ```
+
+## 2023 年 4 月 10 日
+
+空值合并运算符 `??` **vs** 逻辑或运算符`||`
+
+- **空值合并运算符**(??)是一个逻辑运算符，当左侧的操作数为 `null` 或者 `undefined` 时，返回其右侧操作数，否则返回左侧操作数。
+- **逻辑或运算符**(||)会在左侧操作数为**假值**时返回右侧操作数。
+
+```js
+null ?? "default string"; // >> default string
+0 ?? 42; // >> 0
+
+null || "default string"; // >> default string
+0 || 42; // >> 42
+```

@@ -41,6 +41,22 @@ export default defineConfig({
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
 				}, {
+					text: 'webpack学习笔记',
+					items: [
+						{ text: '追本溯源', link: '/study/webpack/source' },
+						{ text: '安装', link: '/study/webpack/install' },
+						{ text: '起步', link: '/study/webpack/start' },
+						{ text: '打包静态资源', link: '/study/webpack/static' },
+						{ text: 'webpack核心', link: '/study/webpack/core' },
+						{ text: 'webpack进阶', link: '/study/webpack/advanced' },
+						{ text: 'webpack配置案例', link: '/study/webpack/case' },
+						{ text: 'webpack性能优化', link: '/study/webpack/optimization' },
+						{ text: '编写自己的Loader', link: '/study/webpack/loader' },
+						{ text: '编写自己的Plugin', link: '/study/webpack/plugin' },
+					],
+					collapsible: true, // 菜单是否为可折叠的
+					collapsed: true // 是否默认折叠 
+				}, {
 					text: 'mapboxgl学习笔记',
 					items: [
 						{ text: 'mapboxgl', link: '/study/mapboxgl/API' },
@@ -52,6 +68,7 @@ export default defineConfig({
 					items: [
 						{ text: 'linux部署', link: '/study/other/linux' },
 						{ text: 'Git指令', link: '/study/other/git' },
+						{ text: 'rollup', link: '/study/other/rollup' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
