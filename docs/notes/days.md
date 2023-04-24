@@ -587,3 +587,17 @@ border-image-repeat 属性能够接受 1~2 个参数值：如果提供两个参�
 3. border-image-slice 如果设定 px 的时候直接写数字就可以, 写了 px 反而会不生效。
 
 :::
+
+## 2023 年 4 月 24 日
+
+几个好用的前端库
+
+#### 第三方库
+
+- 代码编辑器 [codemirror](https://codemirror.net/)
+- 富文本编辑器 [wangEditor](https://www.wangeditor.com/v5/)
+- Markdown 编辑器 [md-editor-v3](https://imzbf.github.io/md-editor-v3/index)
+- Word 在线预览 [docx-perview](https://www.npmjs.com/package/docx-preview)
+- PDF 在线预览 [PDFObject](https://pdfobject.com/)
+- 文件导出/下载 [file-saver](https://www.npmjs.com/package/file-saver)
+- 网页/屏幕截图 [html2canvas](https://html2canvas.hertzen.com/)
