@@ -2,6 +2,11 @@
 layout: doc
 ---
 
+<script>
+  import LineClamp from '../components/vue2/line-clamp.vue'
+  import NumberLabel from '../components/vue2/number-ani-label.vue'
+</script>
+
 ## 2023 年 3 月 30 日
 
 #### 1. `vue`中的`filters` 无法获取`this`
@@ -66,9 +71,6 @@ img {
 #### 1. 变化的数字（vue2）
 
 - 变动的数字： <number-label :value="2500" />
-<script>
-  import NumberLabel from '../components/vue2/number-ani-label.vue'
-</script>
 
 ```vue
 <!-- 使用方法 -->
@@ -601,3 +603,38 @@ border-image-repeat 属性能够接受 1~2 个参数值：如果提供两个参�
 - PDF 在线预览 [PDFObject](https://pdfobject.com/)
 - 文件导出/下载 [file-saver](https://www.npmjs.com/package/file-saver)
 - 网页/屏幕截图 [html2canvas](https://html2canvas.hertzen.com/)
+
+## 2023 年 4 月 28 日
+
+css 中 单行省略号多行省略号
+
+<line-clamp></line-clamp>
+
+```css
+.singe-line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
+  white-space: nowrap;
+}
+
+.mult-line {
+  word-break: break-all;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // 此处的2代表两行后显示省略号
+  -webkit-box-orient: vertical;
+}
+
+// 兼容性写法
+ {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+
+  -webkit-line-clamp: 2; // chrome Safari
+  -moz-line-clamp: 2; // Firefox
+  -ms-line-clamp: 2; // ie edge
+  line-clamp: 2;
+}
+```

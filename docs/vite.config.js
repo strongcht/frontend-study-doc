@@ -12,4 +12,13 @@ const options = {
 
 export default defineConfig({
     plugins: [SearchPlugin(options)],
+    css: {
+        preprocessorOptions: {
+            less: {
+                modifyVars: {
+                    hack: `true; @import (reference) "${path.resolve("src/assets/css/base.less")}";`,
+                },
+                javascriptEnabled: true,
+            },
+        },
 });
