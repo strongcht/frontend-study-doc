@@ -69,14 +69,17 @@ layout: doc
 - 依次执行
 
   `make`
+
   `make install`
 
 - 安装成功后，返回上级目录，然后进入新的 nginx 目录
 
+```sh
   cd ..
   ls
   cd nginx
   ls
+```
 
 ##### 2.5 启动 nginx
 

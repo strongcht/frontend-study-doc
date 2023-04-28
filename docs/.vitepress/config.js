@@ -148,7 +148,30 @@ export default defineConfig({
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
-				}, {
+			},{
+					text: 'vue3学习笔记',
+					items: [
+						{
+							text: 'Vue-Router',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue3/router/README' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: 'Pinia',
+							items: [
+								{ text: '介绍', link: '/study/vue/vue3/pinia/README' },
+							],
+							collapsible: true, // 菜单是否为可折叠的
+							collapsed: true // 是否默认折叠 
+						},
+					],
+					collapsible: true, // 菜单是否为可折叠的
+					collapsed: true // 是否默认折叠 
+				},
+				{
 					text: 'javaScript',
 					items: [
 						{ text: 'ES6', link: '/study/javaScript/ES6' }
@@ -190,6 +213,7 @@ export default defineConfig({
 					text: '其他学习',
 					items: [
 						{ text: 'linux部署', link: '/study/other/linux' },
+						{ text: '服务器安装mysql', link: '/study/other/mysql' },
 						{ text: 'Git指令', link: '/study/other/git' },
 						{ text: 'rollup', link: '/study/other/rollup' },
 					],
