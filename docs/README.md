@@ -13,7 +13,7 @@
 
 ## 远程仓库
 
-`https://github.com/chenhongtao-cht/frontend-study-doc.git`
+`https://github.com/strongcht/frontend-study-doc.git`
 
 ## 在线地址
 
