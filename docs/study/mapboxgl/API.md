@@ -20,6 +20,7 @@ layers：图层集合（必填，包含了一系列图层 layer，这些图层�
 
 fill：填充（用于给多边形 polygon 进行填充和描边）
 
+```js
     "layers": [
         {
             "id": "fill-id", // 唯一 id （必填）
@@ -46,11 +47,13 @@ fill：填充（用于给多边形 polygon 进行填充和描边）
             }
         }
     ]
+```
 
 ## (2) line
 
 line：线（用于绘制成一条条线）
 
+```js
     "layers": [
         {
             "id": "line-id", // 唯一 id （必填）
@@ -91,11 +94,13 @@ line：线（用于绘制成一条条线）
             }
         }
     ]
+```
 
 ## (3) circle
 
 circle：圆点（用于绘制成一个个圆点）
 
+```js
     "layers": [
         {
             "id": "circle-id", // 唯一 id （必填）
@@ -126,11 +131,13 @@ circle：圆点（用于绘制成一个个圆点）
             }
         }
     ]
+```
 
 ## (4) symbol
 
 symbol：符号（用于绘制成一个个图标或者文本标签等）
 
+```js
     "layers": [
         {
             "id": "symbol-id", // 唯一 id （必填）
@@ -226,11 +233,13 @@ symbol：符号（用于绘制成一个个图标或者文本标签等）
             }
         }
     ]
+```
 
 ## (5) background
 
 background：背景（用于绘制成整个地图的背景或者图案）
 
+```js
     "layers": [
         {
             "id": "background-id", // 唯一 id （必填）
@@ -250,11 +259,13 @@ background：背景（用于绘制成整个地图的背景或者图案）
             }
         }
     ]
+```
 
 ## (6) raster
 
 raster：栅格（用于绘制栅格地图，比如卫星影像）
 
+```js
     "layers": [
         {
             "id": "raster-id", // 唯一 id （必填）
@@ -282,11 +293,13 @@ raster：栅格（用于绘制栅格地图，比如卫星影像）
             }
         }
     ]
+```
 
 ## (7) heatmap
 
 heatmap：热力图（用于绘制成热力图的效果）
 
+```js
     "layers": [
         {
             "id": "heatmap-id", // 唯一 id （必填）
@@ -319,11 +332,13 @@ heatmap：热力图（用于绘制成热力图的效果）
             }
         }
     ]
+```
 
 ## (8) hillshade
 
 hillshade：坡面阴影（基于 DEM 数字高程模型进行坡面阴影的可视化渲染）
 
+```js
     "layers": [
         {
             "id": "hillshade-id", // 唯一 id （必填）
@@ -349,12 +364,13 @@ hillshade：坡面阴影（基于 DEM 数字高程模型进行坡面阴影的可
             }
         }
     ]
+```
 
 ## (9) fill-extrusion
 
 fill-extrusion：三维填充（用于给三维多边形进行填充和描边）
 
-```
+```js
 "layers": [
     {
         "id": "fill-extrusion-id", // 唯一 id （必填）
@@ -392,136 +408,137 @@ fill-extrusion：三维填充（用于给三维多边形进行填充和描边）
 - onAdd(map, gl)，初始化 webgl
 - render(gl, matrix), 每一帧都会 call 这个 render 函数，可以在这里注入需要在 webgl 上下文中渲染的操作
 
-```
-
+```js
 var customLayer = {
-    id: '3d-terrain',
-    type: 'custom',  // 指定是自定义图层，不然就是 fill，symbol 等图层.
-    renderingMode: '3d',
-    onAdd: function (map, gl) {
-        this.camera = new THREE.Camera();
-        this.scene = new THREE.Scene();
-        this.map = map;
+  id: "3d-terrain",
+  type: "custom", // 指定是自定义图层，不然就是 fill，symbol 等图层.
+  renderingMode: "3d",
+  onAdd: function (map, gl) {
+    this.camera = new THREE.Camera();
+    this.scene = new THREE.Scene();
+    this.map = map;
 
-        // use the Mapbox GL JS map canvas for three.js
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: map.getCanvas(),
-            context: gl // 用mapbox 的webgl作为threejs 的上下文.
-        });
+    // use the Mapbox GL JS map canvas for three.js
+    this.renderer = new THREE.WebGLRenderer({
+      canvas: map.getCanvas(),
+      context: gl, // 用mapbox 的webgl作为threejs 的上下文.
+    });
 
-        // 把Threejs 的scene，camera以及renderer 传入自定义的terrainLoader中，以便add(bufferPlaneMesh)
-        this.terrainLoader = new TerrainLoader({
-            scene: this.scene,
-            camera: this.camera,
-            renderer: this.renderer
-        });
-    },
-    render: function (gl, matrix) {
-        // ..省略部分 以下是将mapbox的matrix 参数同步给threejs 实例
-        // sync mapbox matrix with THREE camera Matrix.
-        var m = new THREE.Matrix4().fromArray(matrix);
-        var l = new THREE.Matrix4().makeTranslation(modelTransform.translateX, modelTransform.translateY, modelTransform.translateZ)
-            .scale(new THREE.Vector3(modelTransform.scale, -modelTransform.scale, modelTransform.scale))
-            .multiply(rotationX)
-            .multiply(rotationY)
-            .multiply(rotationZ);
+    // 把Threejs 的scene，camera以及renderer 传入自定义的terrainLoader中，以便add(bufferPlaneMesh)
+    this.terrainLoader = new TerrainLoader({
+      scene: this.scene,
+      camera: this.camera,
+      renderer: this.renderer,
+    });
+  },
+  render: function (gl, matrix) {
+    // ..省略部分 以下是将mapbox的matrix 参数同步给threejs 实例
+    // sync mapbox matrix with THREE camera Matrix.
+    var m = new THREE.Matrix4().fromArray(matrix);
+    var l = new THREE.Matrix4()
+      .makeTranslation(
+        modelTransform.translateX,
+        modelTransform.translateY,
+        modelTransform.translateZ
+      )
+      .scale(
+        new THREE.Vector3(
+          modelTransform.scale,
+          -modelTransform.scale,
+          modelTransform.scale
+        )
+      )
+      .multiply(rotationX)
+      .multiply(rotationY)
+      .multiply(rotationZ);
 
-        // sync mapbox matrix with THREE camera. 更新threejs camera的投影矩阵，重新渲染，再强制触发下mapbox 的repaint，这样动画就可以继续进行了
-        this.camera.projectionMatrix.elements = matrix;
-        this.camera.projectionMatrix = m.multiply(l);
-        this.renderer.state.reset();
-        this.renderer.render(this.scene, this.camera);
-        this.map.triggerRepaint();
-    }
-}
+    // sync mapbox matrix with THREE camera. 更新threejs camera的投影矩阵，重新渲染，再强制触发下mapbox 的repaint，这样动画就可以继续进行了
+    this.camera.projectionMatrix.elements = matrix;
+    this.camera.projectionMatrix = m.multiply(l);
+    this.renderer.state.reset();
+    this.renderer.render(this.scene, this.camera);
+    this.map.triggerRepaint();
+  },
+};
 // 把customlayer 加入label 之下，这样文字标注就可以浮在地形图层之上
-map.on('style.load', function () {
-    map.addLayer(customLayer, 'roads labels');
+map.on("style.load", function () {
+  map.addLayer(customLayer, "roads labels");
 });
-
 ```
 
-```
+```vue
 <template>
-    <div></div>
+  <div></div>
 </template>
 
 <script>
-
 // import modelMtl from  "./models/triangle.mtl";
 // import modelObj from "./models/triangle.obj";
-import modelMtl from  "./models/三角锥.mtl";
+import modelMtl from "./models/三角锥.mtl";
 import modelObj from "./models/三角锥.obj";
 
 export default {
-    inject: ['map', 'baseMap'],
-    methods: {
-        init() {
-            let targetLnglat = [114.0600586, 22.5296825];
-            this.map.flyTo({
-                center: targetLnglat,
-                zoom: 14,
-                pitch: 60
-            });
+  inject: ["map", "baseMap"],
+  methods: {
+    init() {
+      let targetLnglat = [114.0600586, 22.5296825];
+      this.map.flyTo({
+        center: targetLnglat,
+        zoom: 14,
+        pitch: 60,
+      });
 
-            window.map = this.map;
+      window.map = this.map;
 
-            this.map.addLayer({
-                id: 'custom_layer',
-                type: 'custom',
-                renderingMode: '3d',
-                onAdd: (map, mbxContext) => {
-                    this.tbInstance = new Threebox(
-                        this.map,
-                        mbxContext, {
-                            defaultLights: true
-                        }
-                    );
+      this.map.addLayer({
+        id: "custom_layer",
+        type: "custom",
+        renderingMode: "3d",
+        onAdd: (map, mbxContext) => {
+          this.tbInstance = new Threebox(this.map, mbxContext, {
+            defaultLights: true,
+          });
 
-                    this.loadModel(targetLnglat);
-
-                },
-                render: (gl, matrix) => {
-                    this.tbInstance.update();
-                }
-            });
-
+          this.loadModel(targetLnglat);
         },
-        loadModel(targetLnglat) {
-            var options = {
-                obj: modelObj,
-                mtl: modelMtl,
-                scale: 2,
-                rotation: {
-                    x: 0,
-                    y: 0,
-                    z: 0
-                }
-            }
-
-            this.tbInstance.loadObj(options, model => {
-                this.model = model;
-                this.tbInstance.add(model);
-                model.setCoords(targetLnglat);
-
-                this.startAnimation();
-
-            });
+        render: (gl, matrix) => {
+          this.tbInstance.update();
         },
-        startAnimation() {
-            let rotateValue = 0;
-            const ani = () => {
-                rotateValue += 0.5;
-                this.model.setRotation(rotateValue % 360);
-                requestAnimationFrame(ani);
-            }
-            requestAnimationFrame(ani);
-        }
+      });
     },
-    mounted() {
-        this.init();
-    }
-}
-</script>
+    loadModel(targetLnglat) {
+      var options = {
+        obj: modelObj,
+        mtl: modelMtl,
+        scale: 2,
+        rotation: {
+          x: 0,
+          y: 0,
+          z: 0,
+        },
+      };
 
+      this.tbInstance.loadObj(options, (model) => {
+        this.model = model;
+        this.tbInstance.add(model);
+        model.setCoords(targetLnglat);
+
+        this.startAnimation();
+      });
+    },
+    startAnimation() {
+      let rotateValue = 0;
+      const ani = () => {
+        rotateValue += 0.5;
+        this.model.setRotation(rotateValue % 360);
+        requestAnimationFrame(ani);
+      };
+      requestAnimationFrame(ani);
+    },
+  },
+  mounted() {
+    this.init();
+  },
+};
+</script>
 ```
