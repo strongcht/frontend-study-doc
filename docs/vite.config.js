@@ -2,6 +2,7 @@
 import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from "vite";
 import flexSearchIndexOptions from "flexsearch";
+const path = require("path");
 //default options
 const options = {
     ...flexSearchIndexOptions,
@@ -21,4 +22,6 @@ export default defineConfig({
                 javascriptEnabled: true,
             },
         },
+    },
 });
+

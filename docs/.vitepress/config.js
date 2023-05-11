@@ -216,6 +216,7 @@ export default defineConfig({
 						{ text: '服务器安装mysql', link: '/study/other/mysql' },
 						{ text: 'Git指令', link: '/study/other/git' },
 						{ text: 'rollup', link: '/study/other/rollup' },
+						{ text: '性能优化', link: '/study/other/performance-optimization' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
