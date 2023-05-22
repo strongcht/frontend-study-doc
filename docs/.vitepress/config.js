@@ -145,6 +145,26 @@ export default defineConfig({
 							collapsible: true, // 菜单是否为可折叠的
 							collapsed: true // 是否默认折叠 
 						},
+						{
+							text: 'learnVue',
+							items: [
+								{ text: '响应式原理', link: '/study/vue/vue2/learnVue/docs/1' },
+								{ text: '依赖收集', link: '/study/vue/vue2/learnVue/docs/2' },
+								{ text: '从源码角度再看数据绑定', link: '/study/vue/vue2/learnVue/docs/3' },
+								{ text: 'Vue事件机制', link: '/study/vue/vue2/learnVue/docs/4' },
+								{ text: 'VNode节点', link: '/study/vue/vue2/learnVue/docs/5' },
+								{ text: 'VirtualDOM与diff(Vue实现)', link: '/study/vue/vue2/learnVue/docs/6' },
+								{ text: '聊聊Vue的template编译', link: '/study/vue/vue2/learnVue/docs/7' },
+								{ text: 'Vue.js异步更新DOM策略及nextTick', link: '/study/vue/vue2/learnVue/docs/8' },
+								{ text: '从template到DOM(Vue.js源码角度看内部运行机制)', link: '/study/vue/vue2/learnVue/docs/9' },
+								{ text: 'Vuex源码解析', link: '/study/vue/vue2/learnVue/docs/10' },
+								{ text: '聊聊keep-alive组件的使用及其实现原理', link: '/study/vue/vue2/learnVue/docs/11' },
+								{ text: 'Vue组件间通信', link: '/study/vue/vue2/learnVue/docs/12' },
+								{ text: '说说element组件库broadcast与dispatch', link: '/study/vue/vue2/learnVue/docs/13' },
+							],
+							collapsible: true, // 菜单是否为可折叠的
+							collapsed: true // 是否默认折叠 
+						},
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
