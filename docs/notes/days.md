@@ -5,6 +5,7 @@ layout: doc
 <script>
   import LineClamp from '../components/vue2/line-clamp.vue'
   import NumberLabel from '../components/vue2/number-ani-label.vue'
+  import VBingInCss from '../components/vue3/v-bind-in-css.vue'
 </script>
 
 ## 2023 年 3 月 30 日
@@ -637,4 +638,142 @@ css 中 单行省略号多行省略号
   -ms-line-clamp: 2; // ie edge
   line-clamp: 2;
 }
+```
+
+## 2023 年 5 月 29 日
+
+vue3 中的新特性 css 中使用 v-bind
+
+<VBingInCss />
+以前实现上面的功能代码
+```vue
+<template>
+  <div 
+    class="box" 
+    :class="{active: isClick}"
+    @click="handleClick" 
+  >
+    点我
+  </div>
+</template>
+<script setup>
+import { ref } from "vue";
+
+const isClick = ref(false);
+
+const handleClick = () => {
+isClick.value = !isClick.value
+}
+</script>
+
+<style scoped>
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  user-select:none;
+}
+.active {
+  background-color: green;
+}
+</style>
+
+````
+
+利用css 中v-bind特性实现
+1. v-bind() 判断变量取值
+```vue
+<template>
+  <div
+    class="box"
+    @click="handleClick"
+  >
+    点我
+  </div>
+</template>
+<script setup>
+import { ref } from "vue";
+
+const isClick = ref(false);
+
+const handleClick = () => {
+isClick.value = !isClick.value
+}
+</script>
+
+<style scoped>
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: v-bind("isClick ? 'green' : 'red'");
+  user-select:none;
+}
+</style>
+````
+
+2. v-bind 直接取值
+
+```vue
+<template>
+  <div class="box" @click="handleClick">点我</div>
+</template>
+<script setup>
+import { ref, computed } from "vue";
+
+const isClick = ref(false);
+
+const handleClick = () => {
+  isClick.value = !isClick.value;
+};
+
+const bgColor = computed(() => {
+  return isClick.value ? "green" : "red";
+});
+</script>
+
+<style scoped>
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: v-bind(bgColor);
+  user-select: none;
+}
+</style>
+```
+
+## 2023 年 5 月 30 日
+
+使用`:global()`实现：
+
+> 在具有`scoped`的 CSS 作用域的 Vue 单文件组件设置 **全局 CSS** 样式
+
+```vue
+<template>
+  <p>Hello Vue.js</p>
+</template>
+
+<style scoped>
+p {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+  line-height: 50px;
+}
+
+/* Make it work */
+:global(body) {
+  width: 100vw;
+  height: 100vh;
+  background-color: burlywood;
+}
+</style>
 ```
