@@ -244,9 +244,21 @@ export default defineConfig({
 			],
 			'/notes/': [
 				{
-					text: 'notes',
+					text: 'days学习笔记',
 					items: [
-						{ text: 'days', link: '/notes/days' },
+						{ text: 'vue2filters中无法获取this', link: '/notes/days/20230330-vue2filters中无法获取this' },
+						{ text: 'object-fit属性', link: '/notes/days/20230331-object-fit属性' },
+						{ text: '变动的数字', link: '/notes/days/20230403-变动的数字' },
+						{ text: 'vue3中effectScope', link: '/notes/days/20230407-vue3中effectScope' },
+						{ text: '?? vs ||', link: '/notes/days/20230410-合并vs逻辑' },
+						{ text: '接入qiankun总结', link: '/notes/days/20230413-接入qiankun总结' },
+						{ text: 'border-image', link: '/notes/days/20230414-border-image' },
+						{ text: '第三方库', link: '/notes/days/20230424-第三方库' },
+						{ text: '单行省略号多行省略号', link: '/notes/days/20230428-单行省略号多行省略号' },
+						{ text: 'css中使用v-bind', link: '/notes/days/20230529-css中使用v-bind' },
+						{ text: ':global()', link: '/notes/days/20230530-global()' },
+						{ text: '函数式组件', link: '/notes/days/20230531-函数式组件' },
+						{ text: 'vue前端打包体积分析', link: '/notes/days/20230710-vue前端打包体积分析' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
