@@ -259,6 +259,8 @@ export default defineConfig({
 						{ text: ':global()', link: '/notes/days/20230530-global()' },
 						{ text: '函数式组件', link: '/notes/days/20230531-函数式组件' },
 						{ text: 'vue前端打包体积分析', link: '/notes/days/20230710-vue前端打包体积分析' },
+						{ text: '回流和重绘', link: '/notes/days/20230726-回流和重绘' },
+						
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
