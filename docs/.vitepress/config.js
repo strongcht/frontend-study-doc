@@ -240,6 +240,7 @@ export default defineConfig({
 						{ text: '函数式组件', link: '/notes/days/20230531-函数式组件' },
 						{ text: 'vue前端打包体积分析', link: '/notes/days/20230710-vue前端打包体积分析' },
 						{ text: '回流和重绘', link: '/notes/days/20230726-回流和重绘' },
+						{ text: 'TypeScript', link: '/notes/days/20230728-TypeScript' },
 						
 					],
 					collapsible: true, // 菜单是否为可折叠的
