@@ -213,6 +213,7 @@ export default defineConfig({
 					text: '其他学习',
 					items: [
 						{ text: 'linux部署', link: '/study/other/linux' },
+						{ text: '抓包工具Whistle', link: '/study/other/Whistle' },
 						{ text: '服务器安装mysql', link: '/study/other/mysql' },
 						{ text: 'Git指令', link: '/study/other/git' },
 						{ text: 'rollup', link: '/study/other/rollup' },
@@ -241,6 +242,8 @@ export default defineConfig({
 						{ text: 'vue前端打包体积分析', link: '/notes/days/20230710-vue前端打包体积分析' },
 						{ text: '回流和重绘', link: '/notes/days/20230726-回流和重绘' },
 						{ text: 'TypeScript', link: '/notes/days/20230728-TypeScript' },
+						{ text: 'git不区分带小写问题', link: '/notes/days/20230928-git不区分大小写问题' },
+						
 						
 					],
 					collapsible: true, // 菜单是否为可折叠的
