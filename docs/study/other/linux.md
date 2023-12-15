@@ -64,6 +64,9 @@ layout: doc
 
 > 配置指令 `./configure --with-http_ssl_module`
 
+启用gzip_static 需要
+`./configure --with-http_gzip_static_module`
+
 ##### 2.4 编译安装 nginx
 
 - 依次执行
@@ -198,3 +201,51 @@ location /images {
 
 - root 的处理结果：root 路径＋ location 路径
 - alias 的处理结果：使用 alias 路径替换 location 路径
+
+## 5.服务器安装 docker
+[参考](https://blog.csdn.net/weixin_43246215/article/details/108934216)
+
+##### 5.1 清除docker
+```sh 
+yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-engine
+
+```
+
+##### 5.2 安装工具 配置镜像
+```sh
+yum install -y yum-utils
+
+# 阿里云镜像
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+```
+
+##### 5.3 安装docker
+
+```sh
+yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+```
+
+##### 5.4 启动docker
+
+```sh
+systemctl start docker
+```
+
+##### 6.运行hello  world
+会先在你的docker镜像中查找hello world 镜像 如果有则直接运行 没有则会在远程仓库中查找 如有返回 没有报错（为找到镜像）
+
+```sh
+docker run hello-world
+
+```
+
+![运行结果](/images/other/docker-1.jpg)
