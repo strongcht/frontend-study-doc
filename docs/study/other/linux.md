@@ -189,7 +189,7 @@ location /images {
 
 ```
 location /images {
-    alias   static/images;
+    alias   static/images/;
     autoindex on;
 }
 ```
@@ -200,7 +200,7 @@ location /images {
 ##### 4.3 两者的区别
 
 - root 的处理结果：root 路径＋ location 路径
-- alias 的处理结果：使用 alias 路径替换 location 路径
+- alias 的处理结果：使用 alias 路径替换 location 路径  结尾需要加 /
 
 ## 5.服务器安装 docker
 [参考](https://blog.csdn.net/weixin_43246215/article/details/108934216)

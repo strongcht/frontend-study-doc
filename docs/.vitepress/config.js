@@ -229,6 +229,7 @@ export default defineConfig({
 				text: '其他学习',
 				items: [
 					{ text: 'linux部署', link: '/study/other/linux' },
+					{ text: 'Nginx简单使用', link: '/study/other/Nginx的简单使用' },
 					{ text: '抓包工具Whistle', link: '/study/other/Whistle' },
 					{ text: '服务器安装mysql', link: '/study/other/mysql' },
 					{ text: 'Git指令', link: '/study/other/git' },
