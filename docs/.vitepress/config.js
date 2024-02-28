@@ -188,6 +188,13 @@ export default defineConfig({
 				collapsed: true // 是否默认折叠 
 			},
 			{
+				text: '面试',
+				items: [
+					{ text: '20240129', link: '/study/interview/20240129' },
+				],
+				collapsible: true, // 菜单是否为可折叠的
+				collapsed: true // 是否默认折叠 
+			}, {
 				text: 'javaScript',
 				items: [
 					{ text: 'ES6', link: '/study/javaScript/ES6' }
