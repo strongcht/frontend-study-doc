@@ -267,7 +267,9 @@ export default defineConfig({
 						{ text: '回流和重绘', link: '/notes/days/20230726-回流和重绘' },
 						{ text: 'TypeScript', link: '/notes/days/20230728-TypeScript' },
 						{ text: 'git不区分带小写问题', link: '/notes/days/20230928-git不区分大小写问题' },
-
+						{ text: '2024-03-01-动态规划', link: '/notes/days/2024-03-01-动态规划' },
+						{ text: '2024-03-04-贪心算法', link: '/notes/days/2024-03-04-贪心算法' },
+						{ text: '202402-29-hello-算法', link: '/notes/days/202402-29-hello-算法' },
 
 					],
 					collapsible: true, // 菜单是否为可折叠的
