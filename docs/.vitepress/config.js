@@ -270,7 +270,7 @@ export default defineConfig({
 						{ text: '2024-03-01-动态规划', link: '/notes/days/2024-03-01-动态规划' },
 						{ text: '2024-03-04-贪心算法', link: '/notes/days/2024-03-04-贪心算法' },
 						{ text: '202402-29-hello-算法', link: '/notes/days/202402-29-hello-算法' },
-
+						{ text: '2024-03-08vue2中的修饰符', link: '/notes/days/2024-03-08-vue2中的修饰符' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
