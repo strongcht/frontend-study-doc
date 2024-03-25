@@ -20,6 +20,7 @@ export default defineConfig({
 			'/study/': [{
 				text: 'vue2学习笔记',
 				items: [
+					{ text: 'vue2', link: '/study/vue/vue2/Vue2' },
 					{ text: '介绍', link: '/study/vue/vue2/introduction/README' },
 					{ text: '源码目录设计和架构设计', link: '/study/vue/vue2/design/README' },
 					{
@@ -167,6 +168,7 @@ export default defineConfig({
 			}, {
 				text: 'vue3学习笔记',
 				items: [
+					{ text: 'vue3', link: '/study/vue/vue3/Vue3' },
 					{
 						text: 'Vue-Router',
 						items: [
@@ -197,7 +199,8 @@ export default defineConfig({
 			}, {
 				text: 'javaScript',
 				items: [
-					{ text: 'ES6', link: '/study/javaScript/ES6' }
+					{ text: 'ES6', link: '/study/javaScript/ES6' },
+					{ text: 'ECMAScript', link: '/study/javaScript/ECMAScript' },
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
@@ -206,6 +209,7 @@ export default defineConfig({
 				items: [
 					{ text: 'grid布局', link: '/study/css/grid' },
 					{ text: 'css3', link: '/study/css/css3' },
+					{ text: 'H5C3', link: '/study/css/H5C3' },
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
@@ -240,12 +244,32 @@ export default defineConfig({
 					{ text: '抓包工具Whistle', link: '/study/other/Whistle' },
 					{ text: '服务器安装mysql', link: '/study/other/mysql' },
 					{ text: 'Git指令', link: '/study/other/git' },
+					{ text: 'Docker', link: '/study/other/Docker' },
+					{ text: '其他概念', link: '/study/other/其他概念' },
 					{ text: 'rollup', link: '/study/other/rollup' },
 					{ text: '性能优化', link: '/study/other/performance-optimization' },
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
 			},
+			{
+				text: 'nodejs',
+				items: [
+					{ text: 'Nodejs', link: '/study/nodejs/NodeJS' },
+				],
+				collapsible: true, // 菜单是否为可折叠的
+				collapsed: true // 是否默认折叠 
+			},
+			{
+				text: 'xiaochengxu',
+				items: [
+					{ text: '微信小程序', link: '/study/xiaochengxu/微信小程序' },
+					{ text: 'uniapp', link: '/study/xiaochengxu/uniapp' },
+				],
+				collapsible: true, // 菜单是否为可折叠的
+				collapsed: true // 是否默认折叠 
+			},
+
 			],
 			'/notes/': [
 				{
