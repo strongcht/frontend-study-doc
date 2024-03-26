@@ -295,6 +295,10 @@ export default defineConfig({
 						{ text: '2024-03-04-贪心算法', link: '/notes/days/2024-03-04-贪心算法' },
 						{ text: '202402-29-hello-算法', link: '/notes/days/202402-29-hello-算法' },
 						{ text: '2024-03-08vue2中的修饰符', link: '/notes/days/2024-03-08-vue2中的修饰符' },
+						{ text: '20240326-学习资料(一)HTML', link: '/notes/days/20240326-学习资料(一)HTML' },
+						{ text: '20240326-学习资料(二)CSS', link: '/notes/days/20240326-学习资料(二)CSS' },
+						{ text: '20240327-学习资料(三)JS', link: '/notes/days/20240327-学习资料(三)JS' },
+
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
