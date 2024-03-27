@@ -299,6 +299,9 @@ export default defineConfig({
 						{ text: '20240326-学习资料(二)CSS', link: '/notes/days/20240326-学习资料(二)CSS' },
 						{ text: '20240327-学习资料(三)JS', link: '/notes/days/20240327-学习资料(三)JS' },
 						{ text: '20240327-学习资料(五)浏览器', link: '/notes/days/20240327-学习资料(五)浏览器' },
+						{ text: '20240327-学习资料(六)性能优化', link: '/notes/days/20240327-学习资料(六)性能优化' },
+						{ text: '20240327-学习资料(七)手写代码', link: '/notes/days/20240327-学习资料(七)手写代码' },
+						{ text: '20240327-学习资料(八)输出结果', link: '/notes/days/20240327-学习资料(八)输出结果' },
 
 					],
 					collapsible: true, // 菜单是否为可折叠的
