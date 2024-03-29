@@ -14,9 +14,3 @@
 ## 远程仓库
 
 `https://github.com/strongcht/frontend-study-doc.git`
-
-## 在线地址
-
-demo(http://1.12.234.248/doc/)
-
-注意: 使用需要构建修改 docs/.vitepress/config.js 中的 base: '/',
