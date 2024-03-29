@@ -193,6 +193,14 @@ export default defineConfig({
 				text: '面试',
 				items: [
 					{ text: '20240129', link: '/study/interview/20240129' },
+					{ text: '20240326-学习资料(一)HTML', link: '/study/interview/20240326-学习资料(一)HTML' },
+					{ text: '20240326-学习资料(二)CSS', link: '/study/interview/20240326-学习资料(二)CSS' },
+					{ text: '20240327-学习资料(三)JS', link: '/study/interview/20240327-学习资料(三)JS' },
+					{ text: '20240328-学习资料(四)Vue', link: '/study/interview/20240328-学习资料(四)Vue' },
+					{ text: '20240327-学习资料(五)浏览器', link: '/study/interview/20240327-学习资料(五)浏览器' },
+					{ text: '20240327-学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
+					{ text: '20240327-学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
+					{ text: '20240327-学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
@@ -295,15 +303,6 @@ export default defineConfig({
 						{ text: '2024-03-04-贪心算法', link: '/notes/days/2024-03-04-贪心算法' },
 						{ text: '202402-29-hello-算法', link: '/notes/days/202402-29-hello-算法' },
 						{ text: '2024-03-08vue2中的修饰符', link: '/notes/days/2024-03-08-vue2中的修饰符' },
-						{ text: '20240326-学习资料(一)HTML', link: '/notes/days/20240326-学习资料(一)HTML' },
-						{ text: '20240326-学习资料(二)CSS', link: '/notes/days/20240326-学习资料(二)CSS' },
-						{ text: '20240327-学习资料(三)JS', link: '/notes/days/20240327-学习资料(三)JS' },
-						{ text: '20240328-学习资料(四)Vue', link: '/notes/days/20240328-学习资料(四)Vue' },
-						{ text: '20240327-学习资料(五)浏览器', link: '/notes/days/20240327-学习资料(五)浏览器' },
-						{ text: '20240327-学习资料(六)性能优化', link: '/notes/days/20240327-学习资料(六)性能优化' },
-						{ text: '20240327-学习资料(七)手写代码', link: '/notes/days/20240327-学习资料(七)手写代码' },
-						{ text: '20240327-学习资料(八)输出结果', link: '/notes/days/20240327-学习资料(八)输出结果' },
-
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
