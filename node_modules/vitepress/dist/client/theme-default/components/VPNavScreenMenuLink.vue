@@ -1,19 +1,24 @@
 <script lang="ts" setup>
+import type { DefaultTheme } from 'vitepress/theme'
 import { inject } from 'vue'
 import VPLink from './VPLink.vue'
 
 defineProps<{
-  text: string
-  link: string
+  item: DefaultTheme.NavItemWithLink
 }>()
 
 const closeScreen = inject('close-screen') as () => void
 </script>
 
 <template>
-  <VPLink class="VPNavScreenMenuLink" :href="link" @click="closeScreen">
-    {{ text }}
-  </VPLink>
+  <VPLink
+    class="VPNavScreenMenuLink"
+    :href="item.link"
+    :target="item.target"
+    :rel="item.rel"
+    @click="closeScreen"
+    v-html="item.text"
+  />
 </template>
 
 <style scoped>
@@ -29,6 +34,6 @@ const closeScreen = inject('close-screen') as () => void
 }
 
 .VPNavScreenMenuLink:hover {
-  color: var(--vp-c-brand);
+  color: var(--vp-c-brand-1);
 }
 </style>

@@ -1,5 +1,9 @@
-node_modules
+
+node_modules/
+.DS_Store
 *.log
 *.lock
+*.yaml
+/.vitepress/*
 /docs/.vitepress/cache/*
 /docs/.vitepress/dist/*

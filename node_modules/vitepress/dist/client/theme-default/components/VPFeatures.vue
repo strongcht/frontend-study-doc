@@ -9,6 +9,8 @@ export interface Feature {
   details: string
   link?: string
   linkText?: string
+  rel?: string
+  target?: string
 }
 
 const props = defineProps<{
@@ -26,7 +28,7 @@ const grid = computed(() => {
     return 'grid-3'
   } else if (length % 3 === 0) {
     return 'grid-6'
-  } else if (length % 2 === 0) {
+  } else if (length > 3) {
     return 'grid-4'
   }
 })
@@ -48,6 +50,8 @@ const grid = computed(() => {
             :details="feature.details"
             :link="feature.link"
             :link-text="feature.linkText"
+            :rel="feature.rel"
+            :target="feature.target"
           />
         </div>
       </div>
