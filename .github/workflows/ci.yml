@@ -1,4 +1,4 @@
-name: Build node to aliyun
+name: Build note to aliyun
 on:
   #监听push操作
   push:
@@ -25,8 +25,6 @@ jobs:
         run: yarn
       - name: Run build task
         run: yarn docs:build
-      - name: Clear target folder on server
-        run: ssh -i ${{ secrets.ALIYUN }} root@${{ secrets.ALIYUN_ECS_IP }} "cd /usr/local/nginx/html/doc && rm -rf *"
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
