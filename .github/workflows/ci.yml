@@ -26,14 +26,21 @@ jobs:
       - name: Run build task
         run: yarn docs:build
       - name: Deploy to Server
-        uses: cross-the-world/scp-pipeline@master
-        env:
-          WELCOME: "ssh scp ssh pipelines"
-          LASTSSH: "Doing something after copying"
-        with:
-          host: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
-          user: root
-          pass: ${{ secrets.ALIYUN }}
-          connect_timeout: 10s
-          local: './docs/.vitepress/dist/*' # 要推送的文件夹，路径相对于代码仓库的根目录
-          remote: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
+        # uses: cross-the-world/scp-pipeline@master
+        # env:
+        #   WELCOME: "ssh scp ssh pipelines"
+        #   LASTSSH: "Doing something after copying"
+        # with:
+        #   host: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
+        #   user: root
+        #   pass: ${{ secrets.ALIYUN }}
+        #   connect_timeout: 10s
+        #   local: './docs/.vitepress/dist/*' # 要推送的文件夹，路径相对于代码仓库的根目录
+        #   remote: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
+        uses: wlixcc/SFTP-Deploy-Action@v1.0 
+        with:  
+          username: 'root'   #ssh user name
+          server: '${{ secrets.ALIYUN_ECS_IP }}' #引用之前创建好的secret
+          ssh_private_key: ${{ secrets.ALIYUN }} #引用之前创建好的secret
+          local_path: './docs/.vitepress/dist/*'  # 对应我们项目build的文件夹路径
+          remote_path: '/usr/local/nginx/html/doc'
