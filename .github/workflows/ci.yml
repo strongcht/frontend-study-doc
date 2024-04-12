@@ -8,10 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # 可以指定多个希望测试的Node.js版本
 
     steps:
       - name: Checkout Github Action
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          
       - name: Install npm dependencies
         run: yarn
       - name: Run build task
