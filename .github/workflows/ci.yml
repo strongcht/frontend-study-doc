@@ -32,4 +32,4 @@ jobs:
           REMOTE_HOST: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
           REMOTE_USER: root # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
           TARGET: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
-          local_path: './docs/.vitepress/dist/*'  # 对应我们项目build的文件夹路径
+          # local_path: './docs/.vitepress/dist/*'  # 对应我们项目build的文件夹路径
