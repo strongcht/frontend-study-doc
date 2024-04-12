@@ -2,7 +2,7 @@
 import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from "vite";
 import flexSearchIndexOptions from "flexsearch";
-const path = require("path");
+import path from 'path';
 //default options
 const options = {
     ...flexSearchIndexOptions,
