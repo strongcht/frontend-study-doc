@@ -35,5 +35,5 @@ jobs:
           user: root
           pass: ${{ secrets.ALIYUN }}
           connect_timeout: 10s
-          local: 'docs/.vitepress/dist/*' # 要推送的文件夹，路径相对于代码仓库的根目录
+          local: './docs/.vitepress/dist/*' # 要推送的文件夹，路径相对于代码仓库的根目录
           remote: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
