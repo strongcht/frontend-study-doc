@@ -1,0 +1,26 @@
+name: Build node to aliyun
+on:
+  #监听push操作
+  push:
+    branches:
+      # master分支，你也可以改成其他分支
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Github Action
+        uses: actions/checkout@v2
+      - name: Install npm dependencies
+        run: yarn
+      - name: Run build task
+        run: yarn docs:build
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ALIYUN }}
+          REMOTE_HOST: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
+          REMOTE_USER: root # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
+          TARGET: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
+          local_path: './docs/.vitepress/dist/*'  # 对应我们项目build的文件夹路径

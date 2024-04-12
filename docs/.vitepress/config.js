@@ -201,6 +201,14 @@ export default defineConfig({
 					{ text: '20240327-学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
 					{ text: '20240327-学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
 					{ text: '20240327-学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
+					{
+						text: 'javaScript',
+						items: [
+							{ text: '2024-04-10', link: '/study/interview/javaScript/2024-04-10-学习资料' },
+						],
+						collapsible: true,
+						collapsed: true
+					},
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
