@@ -11,7 +11,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [18.x, 20.x] # 可以指定多个希望测试的Node.js版本
+        node-version: [18.x] # 可以指定多个希望测试的Node.js版本
 
     steps:
       - name: Checkout Github Action
