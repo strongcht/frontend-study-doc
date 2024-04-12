@@ -26,10 +26,14 @@ jobs:
       - name: Run build task
         run: yarn docs:build
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.1.5
+        uses: cross-the-world/scp-pipeline@master
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.ALIYUN }}
-          REMOTE_HOST: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
-          REMOTE_USER: root # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
-          TARGET: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
-          FOLDER: dist # 要推送的文件夹，路径相对于代码仓库的根目录
+          WELCOME: "ssh scp ssh pipelines"
+          LASTSSH: "Doing something after copying"
+        with:
+          host: ${{ secrets.ALIYUN_ECS_IP }} # 你的阿里云公网地址
+          user: root
+          pass: ${{ secrets.ALIYUN }}
+          connect_timeout: 10s
+          local: 'docs/.vitepress/dist/*' # 要推送的文件夹，路径相对于代码仓库的根目录
+          remote: /usr/local/nginx/html/doc # 打包后的 dist 文件夹将放在 /www/wwwroot/xxx
