@@ -284,7 +284,45 @@ export default defineConfig({
 				],
 				collapsible: true, // 菜单是否为可折叠的
 				collapsed: true // 是否默认折叠 
-			},
+			}, {
+				text: '数据结构与算法',
+				items: [
+					{
+						text: '数据结构',
+						items: [
+							{ text: '数组', link: '/study/algo/data-structure/Array' },
+							{ text: '栈', link: '/study/algo/data-structure/Stack' },
+							{ text: '队列', link: '/study/algo/data-structure/Queue' },
+							{ text: '优先队列', link: '/study/algo/data-structure/PriorityQueue' },
+							{ text: '单向链表', link: '/study/algo/data-structure/LinkedList' },
+							{ text: '双向链表', link: '/study/algo/data-structure/DoubleLinkedList' },
+							{ text: '集合', link: '/study/algo/data-structure/Set' },
+							{ text: '字典', link: '/study/algo/data-structure/Map' },
+							{ text: '哈希表', link: '/study/algo/data-structure/HashTable' },
+							{ text: '树', link: '/study/algo/data-structure/Tree' },
+							{ text: '二叉树', link: '/study/algo/data-structure/BinaryTree' },
+							{ text: '二叉搜索树', link: '/study/algo/data-structure/BinarySearchTree' },
+							{ text: '图', link: '/study/algo/data-structure/Graph' },
+						],
+						collapsible: true,
+						collapsed: true
+					},
+					{
+						text: '算法',
+						items: [
+							{ text: '排序', link: '/study/algo/algorithm/sort' },
+							{ text: '搜索', link: '/study/algo/algorithm/search' },
+							{ text: '设计思想', link: '/study/algo/algorithm/idea' },
+							{ text: '经典算法', link: '/study/algo/algorithm/classic' },
+						],
+						collapsible: true,
+						collapsed: true
+					},
+					{ text: 'LeetCode', link: '/study/algo/leetCode' },
+				],
+				collapsible: true, // 菜单是否为可折叠的
+				collapsed: true // 是否默认折叠 
+			}
 
 			],
 			'/notes/': [
