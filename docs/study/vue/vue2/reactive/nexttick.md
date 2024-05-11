@@ -216,7 +216,7 @@ const callbacks = [];
 let pending = false;
 function flushCallbacks() {
   pending = false;
-  const copies = callbacks.slice(0);
+  const copies = callbacks.slice();
   callbacks.length = 0;
   for (let i = 0; i < copies.length; i++) {
     copies[i]();
