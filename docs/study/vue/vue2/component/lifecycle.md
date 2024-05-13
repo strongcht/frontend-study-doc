@@ -2,7 +2,7 @@
 在介绍完组件`patch`章节后，从`new Vue`实例化到最终渲染成真实`DOM`到视图的主线过程我们已经介绍完毕了，那么我们回顾一下这个过程，再看组件生命周期，在`Vue.js`官网中有这样一张组件生命周期流程图。
 
 <div style="text-align: center">
-  <img src="https://cn.vuejs.org/images/lifecycle.png" alt="组件生命周期">
+  <img src="/images/vueAnalysis/lifecycle.png" alt="组件生命周期">
 </div>
 
 ## callhook

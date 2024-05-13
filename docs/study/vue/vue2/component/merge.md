@@ -387,7 +387,7 @@ strats.data = function (
 }
 strats.provide = mergeDataOrFn
 ```
-在合并`data`的包裹函数中，对`childVal`进行了检验，如果不是函数类型，提示错误信息并直接返回。如果时，再调用`mergeDataOrFn`方法来合并。接下来，我们来看一下`mergeDataOrFn`方法的具体实现逻辑：
+在合并`data`的包裹函数中，对`childVal`进行了检验，如果不是函数类型，提示错误信息并直接返回。如果是，再调用`mergeDataOrFn`方法来合并。接下来，我们来看一下`mergeDataOrFn`方法的具体实现逻辑：
 ```js
 export function mergeDataOrFn (
   parentVal: any,
