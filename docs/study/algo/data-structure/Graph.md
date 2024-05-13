@@ -14,13 +14,13 @@
 - 图长什么样子呢？或者什么样的数据使用图来模拟更合适呢？
 
   - 人与人之间的关系网
-    ![img](../public/images/data-structure/img-57.png)
+    ![img](/images/data-structure/img-57.png)
 
   - 互联网中的网络关系
-    ![img](../public/images/data-structure/img-58.png)
+    ![img](/images/data-structure/img-58.png)
 
   - 广州地铁图
-    ![img](../public/images/data-structure/img-59.png)
+    ![img](/images/data-structure/img-59.png)
 
 - 什么是图呢？
 
@@ -43,7 +43,7 @@
 
 通过下图来了解图的术语：
 
-![img](../public/images/data-structure/img-60.png)
+![img](/images/data-structure/img-60.png)
 
 - 顶点
 
@@ -92,7 +92,7 @@
   - 带权图表示边有一定的权重
   - 这里的权重可以是任意你希望表示的数据：比如距离或者花费的时间或者票价。
   - 我们来看一张有向和带权的图：
-    ![img](../public/images/data-structure/img-61.png)
+    ![img](/images/data-structure/img-61.png)
 
 ### 现实建模
 
@@ -131,7 +131,7 @@
   - 邻接矩阵让每个节点和一个整数向关联，该整数作为数组的下标值。
   - 我们用一个二维数组来表示顶点之间的连接。
 
-  ![img](../public/images/data-structure/img-62.png)
+  ![img](/images/data-structure/img-62.png)
 
 - 图片解析
 
@@ -156,7 +156,7 @@
   - 邻接表由图中每个顶点以及和顶点相邻的顶点列表组成。
   - 这个列表有很多中方式来存储：数组/链表/字典 (哈希表) 都可以。
 
-  ![img](../public/images/data-structure/img-63.png)
+  ![img](/images/data-structure/img-63.png)
 
 - 图片解析
 
@@ -318,7 +318,7 @@ initializeColor() {
   广度优先算法会从指定的第一个顶点开始遍历图，先访问其所有的相邻点，就像一次访问图的一层。换句话说，就是先宽后深的访问顶点。
 
 - 图解 BFS
-  ![img](../public/images/data-structure/img-64.png)
+  ![img](/images/data-structure/img-64.png)
 
 - 广度优先搜索的实现
 
@@ -384,7 +384,7 @@ initializeColor() {
 - 深度优先搜索算法将会从第一个指定的顶点开始遍历图，沿着路径知道这条路径最后被访问了。
 - 接着原路回退并探索下一条路径。
 - 图解 DFS
-  ![img](../public/images/data-structure/img-65.png)
+  ![img](/images/data-structure/img-65.png)
 
 深度优先搜索算法的实现：
 
@@ -439,6 +439,6 @@ initializeColor() {
   ```
 
 - 递归的代码较难理解一些，这副图来帮助理解过程：
-  ![img](../public/images/data-structure/img-66.png)
+  ![img](/images/data-structure/img-66.png)
 
 

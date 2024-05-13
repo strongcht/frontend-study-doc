@@ -109,7 +109,7 @@ console.log(set.values()); //--> []
 - 差集：对于给定的两个集合，返回一个包含所有存在于第一个集合且不存在于第二个集合的元素的新集合。
 - 子集：验证一个给定集合是否是另一个集合的子集。
 
-![img](../public/images/data-structure/img-12.png)
+![img](/images/data-structure/img-12.png)
 
 ### 并集的实现
 

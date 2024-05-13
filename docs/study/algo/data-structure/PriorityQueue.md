@@ -140,4 +140,4 @@ console.log(priorityQueue.toString()); //--> B-15 E-18 D-20
 
 ## 数组、栈和队列图解
 
-![image](../public/images/data-structure/img-04.png)
+![image](/images/data-structure/img-04.png)

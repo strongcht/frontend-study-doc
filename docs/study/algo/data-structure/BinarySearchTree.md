@@ -10,7 +10,7 @@
 - 条件 2：非空右子树的所有键值大于其根节点的键值；比如树三中节点 6 的所有非空右子树的键值都大于 6；
 - 条件 3：左、右子树本身也都是二叉搜索树；
 
-![img](../public/images/data-structure/img-37.png)
+![img](/images/data-structure/img-37.png)
 
 如上图所示，树二和树三符合 3 个条件属于二叉树，树一不满足条件 3 所以不是二叉树。
 
@@ -20,7 +20,7 @@
 
 下面是一个二叉搜索树：
 
-![img](../public/images/data-structure/img-38.png)
+![img](/images/data-structure/img-38.png)
 
 若想在其中查找数据 10，只需要查找 4 次，查找效率非常高。
 
@@ -29,11 +29,11 @@
 - 第 3 次：由于 10 < 11，所以 10 下一步与父节点 11 的左子节点 10 比较；
 - 第 4 次：由于 10 = 10，最终查找到数据 10。
 
-![img](../public/images/data-structure/img-39.png)
+![img](/images/data-structure/img-39.png)
 
 同样是 15 个数据，在排序好的数组中查询数据 10，需要查询 10 次：
 
-![img](../public/images/data-structure/img-40.png)
+![img](/images/data-structure/img-40.png)
 
 其实：如果是排序好的数组，可以通过二分查找：第一次找 9，第二次找 13，第三次找 15...。我们发现如果把每次二分的数据拿出来以树的形式表示的话就是二叉搜索树。这就是数组二分法查找效率之所以高的原因。
 
@@ -41,7 +41,7 @@
 
 二叉搜索树有四个最基本的属性：指向节点的根（root），节点中的键（key）、左指针（right）、右指针（right）。
 
-![img](../public/images/data-structure/img-41.png)
+![img](/images/data-structure/img-41.png)
 
 所以，二叉搜索树中除了定义 root 属性外，还应定义一个节点内部类，里面包含每个节点中的 left、right 和 key 三个属性。
 
@@ -151,7 +151,7 @@ insertNode(root, node) {
 然后，遍历其左子树；
 最后，遍历其右子树；
 
-![img](../public/images/data-structure/img-42.png)
+![img](/images/data-structure/img-42.png)
 
 如上图所示，二叉树的节点遍历顺序为：A -> B -> D -> H -> I -> E -> C -> F -> G。
 
@@ -183,7 +183,7 @@ preorderTraversalNode(node, result) {
 
 过程图解：
 
-![img](../public/images/data-structure/img-43.png)
+![img](/images/data-structure/img-43.png)
 
 输出节点的顺序应为：3 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> 11 -> 12 -> 13 -> 14 -> 15 -> 18 -> 20 -> 25。
 
@@ -215,7 +215,7 @@ inorderTraversalNode(node, result) {
 
 过程图解：
 
-![img](../public/images/data-structure/img-44.png)
+![img](/images/data-structure/img-44.png)
 
 输出节点的顺序应为：3 -> 6 -> 5 -> 8 -> 10 -> 9 -> 7 -> 12 -> 14 -> 13 -> 18 -> 25 -> 20 -> 15 -> 11。
 
@@ -250,7 +250,7 @@ postorderTraversalNode(node, result) {
 
 在二叉搜索树中查找最值非常简单，最小值在二叉搜索树的最左边，最大值在二叉搜索树的最右边。只需要一直向左/右查找就能得到最值，如下图所示：
 
-![img](../public/images/data-structure/img-45.png)
+![img](/images/data-structure/img-45.png)
 
 代码实现：
 
@@ -368,13 +368,13 @@ while (currentNode.key !== key) {
 
   当该叶子节点为根节点时，如下图所示，此时 current == this.root，直接通过：this.root = null，删除根节点。
 
-  ![img](../public/images/data-structure/img-46.png)
+  ![img](/images/data-structure/img-46.png)
 
 - 叶子节点不为根节点
 
   当该叶子节点不为根节点时也有两种情况，如下图所示
 
-  ![img](../public/images/data-structure/img-47.png)
+  ![img](/images/data-structure/img-47.png)
 
   若 current = 8，可以通过：parent.left = null，删除节点 8；
 
@@ -409,7 +409,7 @@ while (currentNode.key !== key) {
 
 - 情况 3：current 为父节点 parent 的右子节点（isLeftChild == false），如节点 9，此时通过：parent.right = current.left，删除节点 9；
 
-![img](../public/images/data-structure/img-48.png)
+![img](/images/data-structure/img-48.png)
 
 当 current 存在右子节点时（current.left = null）：
 
@@ -419,7 +419,7 @@ while (currentNode.key !== key) {
 
 - 情况 6：current 为父节点 parent 的右子节点（isLeftChild == false），如节点 9，此时通过：parent.right = current.right，删除节点 9；
 
-![img](../public/images/data-structure/img-49.png)
+![img](/images/data-structure/img-49.png)
 
 代码实现：
 
@@ -458,7 +458,7 @@ while (currentNode.key !== key) {
 
 这种情况十分复杂，首先依据以下二叉搜索树，讨论这样的问题：
 
-![img](../public/images/data-structure/img-50.png)
+![img](/images/data-structure/img-50.png)
 
 **删除节点 9**
 
@@ -467,7 +467,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 9 的左子树中选择一合适的节点替代节点 9，可知节点 8 符合要求；
 - 方式 2：从节点 9 的右子树中选择一合适的节点替代节点 9，可知节点 10 符合要求；
 
-![img](../public/images/data-structure/img-51.png)
+![img](/images/data-structure/img-51.png)
 
 **删除节点 7**
 
@@ -476,7 +476,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 7 的左子树中选择一合适的节点替代节点 7，可知节点 5 符合要求；
 - 方式 2：从节点 7 的右子树中选择一合适的节点替代节点 7，可知节点 8 符合要求；
 
-![img](../public/images/data-structure/img-52.png)
+![img](/images/data-structure/img-52.png)
 
 **删除节点 15**
 
@@ -485,7 +485,7 @@ while (currentNode.key !== key) {
 - 方式 1：从节点 15 的左子树中选择一合适的节点替代节点 15，可知节点 14 符合要求；
 - 方式 2：从节点 15 的右子树中选择一合适的节点替代节点 15，可知节点 18 符合要求；
 
-![img](../public/images/data-structure/img-53.png)
+![img](/images/data-structure/img-53.png)
 
 相信你已经发现其中的规律了！
 
@@ -503,7 +503,7 @@ while (currentNode.key !== key) {
 - 比 current 小一点点的节点，称为 current 节点的前驱。比如下图中的节点 5 就是节点 7 的前驱；
 - 比 current 大一点点的节点，称为 current 节点的后继。比如下图中的节点 8 就是节点 7 的后继；
 
-![img](../public/images/data-structure/img-54.png)
+![img](/images/data-structure/img-54.png)
 
 查找需要被删除的节点 current 的后继时，需要在 current 的右子树中查找最小值，即在 current 的右子树中一直向左遍历查找；
 
@@ -681,11 +681,11 @@ getSuccessor(delNode) {
 
 二叉搜索树的缺陷：当插入的数据是有序的数据，就会造成二叉搜索树的深度过大。比如原二叉搜索树由 11 7 15 组成，如下图所示：
 
-![img](../public/images/data-structure/img-55.png)
+![img](/images/data-structure/img-55.png)
 
 当插入一组有序数据：6 5 4 3 2 就会变成深度过大的搜索二叉树，会严重影响二叉搜索树的性能。
 
-![img](../public/images/data-structure/img-56.png)
+![img](/images/data-structure/img-56.png)
 
 非平衡树
 

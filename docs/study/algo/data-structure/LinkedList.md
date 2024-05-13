@@ -46,7 +46,7 @@
 
 - 链表的火车结构
 
-  ![img](../public/images/data-structure/img-05.png)
+  ![img](/images/data-structure/img-05.png)
 
 - 链表的数据结构
 
@@ -54,11 +54,11 @@
   链表中的最后一个节点指向 `null`。
   当链表中一个节点也没有的时候，head 直接指向 `null`。
 
-  ![img.png](../public/images/data-structure/img-06.png)
+  ![img.png](/images/data-structure/img-06.png)
 
 - 给火车加上数据后的结构
 
-  ![img.png](../public/images/data-structure/img-07.png)
+  ![img.png](/images/data-structure/img-07.png)
 
 ### 链表中的常见操作
 
@@ -138,11 +138,11 @@ append(data) {
 
 - 首先让 `currentNode` 指向第一个节点。
 
-  ![img.png](../public/images/data-structure/img-08.png)
+  ![img.png](/images/data-structure/img-08.png)
 
 - 通过 `while` 循环使 `currentNode` 指向最后一个节点，最后通过 `currentNode.next = newNode`，让最后一个节点指向新节点 `newNode`。
 
-  ![img.png](../public/images/data-structure/img-09.png)
+  ![img.png](/images/data-structure/img-09.png)
 
 代码测试：
 
@@ -155,7 +155,7 @@ linkedList.append("C");
 console.log(linkedList);
 ```
 
-![img.png](../public/images/data-structure/img-10.png)
+![img.png](/images/data-structure/img-10.png)
 
 #### 实现 toString() 方法
 

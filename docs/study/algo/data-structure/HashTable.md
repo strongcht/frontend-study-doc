@@ -79,7 +79,7 @@
 
 如下图所示，我们将每一个数字都对 10 进行取余操作，则余数的范围 0~9 作为数组的下标值。并且，数组每一个下标值对应的位置存储的不再是一个数字了，而是存储由经过取余操作后得到相同余数的数字组成的数组或链表。
 
-![img](../public/images/data-structure/img-13.png)
+![img](/images/data-structure/img-13.png)
 
 这样可以根据下标值获取到整个数组或链表，之后继续在数组或链表中查找就可以了。而且，产生冲突的元素一般不会太多。
 
@@ -89,7 +89,7 @@
 
 开放地址法的主要工作方式是**寻找空白的单元格来放置冲突的数据项**。
 
-![img](../public/images/data-structure/img-14.png)
+![img](/images/data-structure/img-14.png)
 
 根据探测空白单元格位置方式的不同，可分为三种方法：
 
@@ -124,7 +124,7 @@
 
 - 比如插入 13 时就会发现，连续的单元 3~7 都不允许插入数据，并且在插入的过程中需要经历多次这种情况。二次探测法可以解决该问题。
 
-![img](../public/images/data-structure/img-15.png)
+![img](/images/data-structure/img-15.png)
 
 ##### 二次探测
 
@@ -183,19 +183,19 @@
 
   可以看到，随着装填因子的增大，平均探测长度呈指数形式增长，性能较差。实际情况中，最好的装填因子取决于存储效率和速度之间的平衡，随着装填因子变小，存储效率下降，而速度上升。
 
-  ![img](../public/images/data-structure/img-16.png)
+  ![img](/images/data-structure/img-16.png)
 
 - 二次探测和再哈希化的性能
 
   二次探测和再哈希法性能相当，它们的性能比线性探测略好。由下图可知，随着装填因子的变大，平均探测长度呈指数形式增长，需要探测的次数也呈指数形式增长，性能不高。
 
-  ![img](../public/images/data-structure/img-17.png)
+  ![img](/images/data-structure/img-17.png)
 
 - 链地址法的性能
 
   可以看到随着装填因子的增加，平均探测长度呈线性增长，较为平缓。在开发中使用链地址法较多，比如 Java 中的 HashMap 中使用的就是链地址法。
 
-  ![img](../public/images/data-structure/img-18.png)
+  ![img](/images/data-structure/img-18.png)
 
 ### 哈希函数
 
@@ -210,7 +210,7 @@
 
 霍纳法则：在中国霍纳法则也叫做秦久韶算法，具体算法为：
 
-![img](../public/images/data-structure/img-19.png)
+![img](/images/data-structure/img-19.png)
 
 求多项式的值时，首先计算最内层括号内一次多项式的值，然后由内向外逐层计算一次多项式的值。这种算法把求 n 次多项式 f(x) 的值就转化为求 n 个一次多项式的值。
 
@@ -279,7 +279,7 @@ console.log(hashFn("abc")); //--> 6
 
 封装的哈希表的数据结构模型：
 
-![img](../public/images/data-structure/img-20.png)
+![img](/images/data-structure/img-20.png)
 
 首先创建哈希表类 HashTable，并添加必要的属性和上面实现的哈希函数，再进行其他方法的实现。
 
@@ -297,7 +297,7 @@ class HashTable {
 
 哈希表的插入和修改操作是同一个函数：因为，当使用者传入一个 `[key, value]` 时，如果原来不存在该 key，那么就是插入操作，如果原来已经存在该 key，那么就是修改操作。
 
-![img](../public/images/data-structure/img-21.png)
+![img](/images/data-structure/img-21.png)
 
 实现思路：
 
@@ -457,7 +457,7 @@ size() {
 - 然后，创建一个新的容量更大的数组，让 `this.storage` 指向它。
 - 最后，将 oldStorage 中的每一个 bucket 中的每一个数据取出来依次添加到 `this.storage` 指向的新数组中。
 
-![img](../public/images/data-structure/img-22.png)
+![img](/images/data-structure/img-22.png)
 
 ### resize() 的实现
 

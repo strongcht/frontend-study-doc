@@ -20,7 +20,7 @@
 
 ## 双向链表结构
 
-![img](../public/images/data-structure/img-11.png)
+![img](/images/data-structure/img-11.png)
 
 - 双向链表不仅有 head 指针指向第一个节点，而且有 tail 指针指向最后一个节点。
 - 每一个节点由三部分组成：item 储存数据、prev 指向前一个节点、next 指向后一个节点。
