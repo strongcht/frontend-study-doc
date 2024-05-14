@@ -1,6 +1,8 @@
 # 介绍和参考
 本篇`Vue2.6.11`源码分析文章由观看[Vue.js源码全方位深入解析](https://coding.imooc.com/class/228.html)视频，阅读[深入浅出Vue.js](https://www.ituring.com.cn/book/2675)书籍以及参考其他`Vue`源码分析博客而来，阅读视频和书籍请支持正版。
 
+[源码注释github仓库地址](https://github.com/yyyao-hh/Vue2-Source-code-analysis)
+
 ## Vue发展简史
 * 2013年7月，`Vue.js`在`Github`上第一次提交，此时名字叫做`Element`，后来被改名为`Seed.js`，到现在的`Vue.js`。
 * 2013年12月，`Github`发布`0.6`版本，并正式更名为`Vue.js`。
