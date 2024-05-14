@@ -28,9 +28,14 @@ jobs:
       - name: Run build task
         run: yarn docs:build
 
-      - name: Remove old files from server
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.ALIYUN }} root@${{ secrets.ALIYUN_ECS_IP }} 'rm -rf /usr/local/nginx/html/doc/*'
+      - name: Clean remote directory
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.ALIYUN_ECS_IP }}
+          username: root
+          key: ${{ secrets.ALIYUN }}
+          script: |
+            rm -rf /usr/local/nginx/html/doc/*
 
       - name: Deploy to Server
         uses: wlixcc/SFTP-Deploy-Action@v1.0 
