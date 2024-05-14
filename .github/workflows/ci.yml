@@ -57,5 +57,5 @@ jobs:
       #     remote_path: '/usr/local/nginx/html/doc' # 对应服务器存放的目录
           
       #     # sftp> put -r ./docs/.vitepress/dist /usr/local/nginx/html/doc
-      #     # 这条命令的意思是将本地目录 ./docs/.vitepress/dist 下的所有文件和子目录递归地上传到远程服务器的 /usr/local/nginx/html/doc 目录中
+      #     # 这条命令的意思是将本地目录 ./docs/.vitepress/dist 下的所有文件和子目录递归地上传到远程服务器的 /usr/local/nginx/html/doc 目录中 速度比较慢
 

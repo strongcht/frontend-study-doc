@@ -8,7 +8,7 @@ export default defineConfig({
 	description: '自定义的 description', // 站点的描述  这将作为<meta>标记渲染在页面HTML中。
 	head: [['meta', { name: 'keywords', content: 'HTML, CSS, JavaScript, Vue, ES6' }]],
 	themeConfig: {
-		logo: '/pubilc/logo.jpg',
+		logo: '/logo.png',
 		lastUpdatedText: "最近更新时间",
 		// 导航栏配置
 		nav: [
