@@ -24,7 +24,7 @@
 <!-- 原生事件修饰符 -->
 <button @click.stop.prevent="handleIncrement">Increment</button>
 <!-- 只添加修饰符，不写事件名 -->
-<div @click.stop"></div>
+<div @click.stop></div>
 ```
 如果要动态绑定事件，可以使用事件动态参数：
 ```js

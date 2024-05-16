@@ -169,6 +169,7 @@ export default defineConfig({
 				text: 'vue3学习笔记',
 				items: [
 					{ text: 'vue3', link: '/study/vue/vue3/Vue3' },
+					{ text: 'vue3diff', link: '/study/vue/vue3/source-code/diff' },
 					{
 						text: 'Vue-Router',
 						items: [
@@ -351,6 +352,7 @@ export default defineConfig({
 						{ text: '2024-03-08vue2中的修饰符', link: '/notes/days/2024-03-08-vue2中的修饰符' },
 						{ text: '20231226-webpack-loader-and-plugin', link: '/notes/days/20231226-webpack-loader-and-plugin' },
 						{ text: '2024-04-22-webComponents学习笔记', link: '/notes/days/2024-04-22-webComponents学习笔记' },
+						{ text: '2024-05-15-xss攻击前端处理', link: '/notes/days/2024-05-15-xss攻击前端处理' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 

@@ -1,11 +1,15 @@
 [参考地址](https://juejin.cn/post/7367722307203563558)
 ## 前言
 
-> 文中讲解代码为 Vue 组合式 API 的最后一个版本 2.6.14 ~ 为了更好的理解，省略了部分代码，留下核心逻辑进行讲解。如需完整代码解释，可在代码库拉取完整代码，每一行均有完整注释，并在不断地完善中，我也会不断补充所有 Vue 源码中涉及到的逻辑；文章中有需要纠正的地方，欢迎大家指出，我们共同打造一份详细易懂的源码解析 ~
-
-如果大家想要了解代码中提到的函数，可以评论区留言，我会补充对该函数的讲解！
-
 `Vue` 的 `Virtual DOM` 和 `Diff` 算法是其核心特性之一，也是面试的热点话题之一。它们使得 `Vue` 能够高效地更新视图。在本文中，我们将深入探讨 `Vue` 源码中的 `Diff` 算法，了解它是如何工作的以及它对 `Vue` 应用的性能优化有何影响
+
+> 多节点 diff 算法的目的是为了尽量复用节点，通过移动节点代替创建。
+
++ 简单diff算法单方向从一端逐个处理的 其实性能不是最好的，比如旧的 vnode 数组是 ABCD，新的 vnode 数组是 DABC，按照简单 diff 算法，A、B、C 都需要移动。
++ 双向diff算法是先从两端开始比较 双端 diff 是头尾指针向中间移动的同时，对比头头、尾尾、头尾、尾头是否可以复用，如果可以的话就移动对应的 dom 节点。如果头尾没找到可复用节点 就遍历 vnode 数组来查找，然后移动对应下标的节点到头部。
++ 快速diff算法是进行预处理先从头开始匹配相同的key,再从尾部处理相同的 将剩余的在进行标记 
+
+最后还剩下旧的 vnode 就批量删除，剩下新的 vnode 就批量新增。
 
 ## 流程讲解
 
@@ -332,18 +336,23 @@ if (isUndef(vnode.text)) { // 新节点非文本节点
 
 这便是 `Diff` 算法的核心，新旧虚拟节点的子节点对比，采用了双端指针 `Diff` 算法。对比的是虚拟 `DOM`，但是移动、删除、插入操作的是真实 `DOM`
 
+![diff双端指针](/images/vueAnalysis/diff-13.png)
 ```javascript
 // src\core\vdom\patch.js
 
 function updateChildren (parentElm, oldCh, newCh, insertedVnodeQueue, removeOnly) {
   var oldStartIdx = 0; // 旧节点的头指针
-  var newStartIdx = 0; // 新节点的头指针
-  var oldEndIdx = oldCh.length - 1; // 旧节点的尾指针
   var oldStartVnode = oldCh[0]; // 旧节点的头节点
-  var oldEndVnode = oldCh[oldEndIdx]; // 旧节点的尾节点
-  var newEndIdx = newCh.length - 1; // 新节点的尾指针
+
+  var newStartIdx = 0; // 新节点的头指针
   var newStartVnode = newCh[0]; // 新节点的头节点
+
+  var oldEndIdx = oldCh.length - 1; // 旧节点的尾指针
+  var oldEndVnode = oldCh[oldEndIdx]; // 旧节点的尾节点
+
+  var newEndIdx = newCh.length - 1; // 新节点的尾指针
   var newEndVnode = newCh[newEndIdx]; // 新节点的尾节点
+
   var oldKeyToIdx, idxInOld, vnodeToMove, refElm;
   
   var canMove = !removeOnly;
@@ -352,10 +361,12 @@ function updateChildren (parentElm, oldCh, newCh, insertedVnodeQueue, removeOnly
 
   // 双端指针Diff
   while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
-    // 如果旧节点的头节点为空, 说明该节点已经在新节点列表中找到了位置, 需要将旧节点的头指针向后移动
+    // 如果旧节点的头节点为空, 说明该节点已经在新节点列表中找到了位置,
+    // 需要将旧节点的头指针向后移动
     if (isUndef(oldStartVnode)) {
       oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
-    // 如果旧节点的尾节点为空, 说明该节点已经在新节点列表中找到了位置, 需要将旧节点的尾指针向前移动
+    // 如果旧节点的尾节点为空, 说明该节点已经在新节点列表中找到了位置,
+    // 需要将旧节点的尾指针向前移动
     } else if (isUndef(oldEndVnode)) {
       oldEndVnode = oldCh[--oldEndIdx];
       
