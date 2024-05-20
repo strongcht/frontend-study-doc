@@ -1,6 +1,7 @@
 
 node_modules/
 .DS_Store
+.vitepress/cache
 *.log
 *.lock
 *.yaml
