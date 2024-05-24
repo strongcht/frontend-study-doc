@@ -47,7 +47,7 @@
 2、修改 build/webpack.demo.js 中的 host 路径，注释掉 // host: '0.0.0.0'  
 3、在 examples/play/index.vue 中引入组件库中的任意组件  
 4、执行 npm run dev:play  
-5、浏览器打开 http://localhost:8085 就可以进入组件测试页面
+5、浏览器打开 `http://localhost:8085` 就可以进入组件测试页面
 
 ### 二次开发哪些内容？
 
@@ -100,7 +100,7 @@ active 颜色：\$--color-primary-active: mix(\$--color-black, \$--color-primary
 <ld-button type="primary">默认按钮</ld-button>
 ```
 
-5、npm run dev:play，打开 http://localhost:8085 页面，即可看到新生成的 ld-button 按钮组件
+5、npm run dev:play，打开 `http://localhost:8085` 页面，即可看到新生成的 ld-button 按钮组件
 
 ## 到达第一站
 
