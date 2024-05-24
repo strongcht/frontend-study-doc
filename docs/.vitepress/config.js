@@ -193,19 +193,20 @@ export default defineConfig({
 			{
 				text: '面试',
 				items: [
-					{ text: '20240129', link: '/study/interview/20240129' },
-					{ text: '20240326-学习资料(一)HTML', link: '/study/interview/20240326-学习资料(一)HTML' },
-					{ text: '20240326-学习资料(二)CSS', link: '/study/interview/20240326-学习资料(二)CSS' },
-					{ text: '20240327-学习资料(三)JS', link: '/study/interview/20240327-学习资料(三)JS' },
-					{ text: '20240328-学习资料(四)Vue', link: '/study/interview/20240328-学习资料(四)Vue' },
-					{ text: '20240327-学习资料(五)浏览器', link: '/study/interview/20240327-学习资料(五)浏览器' },
-					{ text: '20240327-学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
-					{ text: '20240327-学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
-					{ text: '20240327-学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
+					{ text: '20240129-面试题', link: '/study/interview/20240129' },
+					{ text: '学习资料(一)HTML', link: '/study/interview/20240326-学习资料(一)HTML' },
+					{ text: '学习资料(二)CSS', link: '/study/interview/20240326-学习资料(二)CSS' },
+					{ text: '学习资料(三)JS', link: '/study/interview/20240327-学习资料(三)JS' },
+					{ text: '学习资料(四)Vue', link: '/study/interview/20240328-学习资料(四)Vue' },
+					{ text: '学习资料(五)浏览器', link: '/study/interview/20240327-学习资料(五)浏览器' },
+					{ text: '学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
+					{ text: '学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
+					{ text: '学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
+					{ text: '2024-05-24-面试题', link: '/study/interview/2024-05-24' },
 					{
 						text: 'javaScript',
 						items: [
-							{ text: '2024-04-10', link: '/study/interview/javaScript/2024-04-10-学习资料' },
+							{ text: '2024-04-10-面试题', link: '/study/interview/javaScript/2024-04-10-学习资料' },
 						],
 						collapsible: true,
 						collapsed: true
