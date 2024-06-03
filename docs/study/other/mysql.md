@@ -8,15 +8,15 @@ layout: doc
 
 > 在腾讯云服务器中安装 mysql 8.0
 
-- 可通过官网下载[mysql](https://downloads.mysql.com/archives/community/) 也可以直接通过 wget 命令下载
+- 可通过官网下载[mysql](https://dev.mysql.com/downloads/repo/yum/) 也可以直接通过 wget 命令下载
 
-  `wget  http://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm`
+  `wget  http://dev.mysql.com/get/mysql84-community-release-el7-1.noarch.rpm`
 
 #### 2. 安装
 
 1. rpm 安装源信息
 
-`rpm -ivh mysql80-community-release-el7-7.noarch.rpm`
+`rpm -ivh mysql84-community-release-el7-1.noarch.rpm`
 
 2. 使用 yum 安装 MySQL
 
@@ -47,6 +47,14 @@ layout: doc
 
 输出类似以上内容，表示安装完成
 
+删除mysql软件包
+
+`sudo yum remove mysql-community-libs-compat-8.0.33-1.el7.x86_64 mysql-community-icu-data-files-8.0.33-1.el7.x86_64`
+`sudo rm -rf /etc/my.cnf`
+`sudo rm -rf /etc/mysql/`
+`sudo rm -rf /var/lib/mysql/`
+`sudo yum clean all`
+
 2. 检查 mariaDB 是否被覆盖
 
 `rpm -qa | grep mariadb`
@@ -75,7 +83,7 @@ is generated for root@localhost: r2to%yZ%a)%s
 
 ```sh
 # 登录mysql，一定要注意：-p和'密码'之间是没有空格的
-mysql -u root -p'r2to%yZ%a)%s'
+mysql -u root -p'ujr%?0Pt*Vw?'
 ```
 
 2. 修改 root 密码
@@ -93,7 +101,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY 'Root_123';
 
 ```sh
 # 登录
-mysql -u root -p'密码'
+mysql -u root -p'Root_123'
 
 # 如果你的数据库是 mysql 8 及以上
 # 1、进入数据库
@@ -121,16 +129,18 @@ systemctl restart mysqld
   > 使用 root 用户新建一个用户
 
 ```sh
-# 1、进入数据库
+# 1. 登录
+mysql -u root -p'Root_123'
+# 2. 进入数据库
 use mysql;
 
-# 2、创建用户
-CREATE USER 'abc'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Abcd_123';
+# 3. 修改
+ALTER USER 'root'@'%' IDENTIFIED BY 'Root_123' PASSWORD EXPIRE NEVER;
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Root_123';
 
-# 3、修改user表并分配权限
-update user set host='%' where user='cht';
-
-GRANT ALL PRIVILEGES ON *.* TO 'cht'@'%';
+如果8.0以上版本 没有user表 user表为 mysql.user
+ALTER mysql.user 'root'@'%' IDENTIFIED BY 'Root_123' PASSWORD EXPIRE NEVER;
+ALTER mysql.user 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'Root_123';
 
 # 4、重载授权表
 FLUSH PRIVILEGES;
