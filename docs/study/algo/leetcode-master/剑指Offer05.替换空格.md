@@ -36,7 +36,7 @@ i指向新长度的末尾，j指向旧长度的末尾。
 
 时间复杂度，空间复杂度均超过100%的用户。
 
-<img src='https://code-thinking.cdn.bcebos.com/pics/剑指Offer05.替换空格.png' width=600> </img></div>
+<img src='https://code-thinking.cdn.bcebos.com/pics/剑指Offer05.替换空格.png' width=600> </img>
 
 C++代码如下：
 
