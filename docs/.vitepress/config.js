@@ -753,10 +753,6 @@ export default defineConfig({
 					// 		link: "/study/algo/leetcode-master/0377-组合总和Ⅳ"
 					// 	},
 					// 	{
-					// 		text: "0377.组合总和IV二维dp数组",
-					// 		link: "/study/algo/leetcode-master/0377-组合总和IV二维dp数组"
-					// 	},
-					// 	{
 					// 		text: "0377-组合总和IV(完全背包的排列问题二维迭代理解)",
 					// 		link: "/study/algo/leetcode-master/0377-组合总和IV(完全背包的排列问题二维迭代理解)"
 					// 	},
