@@ -23,5 +23,6 @@ export default defineConfig({
     server: {
         port: 8989,
     },
+    ignoreDeadLinks: true
 });
 
