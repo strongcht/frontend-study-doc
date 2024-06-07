@@ -436,3 +436,224 @@ module.exports = configs;
 ```
 
 **小结**：Webpack 性能优化是一个长久的话题，本章也仅仅只是浅尝辄止，后续会有关于 Webpack 更加深入的解读博客，敬请期待(立个`flag`:triangular_flag_on_post:)。
+
+## webpack5 打包优化
+> Webpack 是一个强大的打包工具，但随着项目规模的增加，构建时间和包大小可能会显著增加。以下是一些常见的性能优化方法，适用于 Webpack 5：
+
+## 1. 使用持久缓存
+
+Webpack 5 引入了持久缓存，能显著减少构建时间。你可以在 Webpack 配置中启用缓存：
+
+```javascript
+module.exports = {
+  cache: {
+    type: 'filesystem',
+  },
+};
+```
+
+## 2. 优化 `mode` 和 `devtool`
+
+根据你的环境设置适当的 `mode` 和 `devtool`：
+
+- 开发环境：`mode: 'development'` 和 `devtool: 'eval-cheap-module-source-map'`
+- 生产环境：`mode: 'production'` 和 `devtool: 'source-map'`
+
+```javascript
+module.exports = (env, argv) => ({
+  mode: argv.mode,
+  devtool: argv.mode === 'development' ? 'eval-cheap-module-source-map' : 'source-map',
+});
+```
+
+## 3. 分割代码
+
+利用代码分割来减少单个文件的大小并提高加载速度：
+
+```javascript
+module.exports = {
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
+};
+```
+
+## 4. 懒加载和动态导入
+
+使用懒加载和动态导入来按需加载代码：
+
+```javascript
+import(/* webpackChunkName: "my-chunk-name" */ './myModule').then(module => {
+  const myModule = module.default;
+  // 使用 myModule
+});
+```
+
+## 5. 优化模块解析
+
+通过限制解析模块的范围和减少解析的路径数量来优化性能：
+
+```javascript
+module.exports = {
+  resolve: {
+    extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+    },
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+  },
+};
+```
+
+## 6. 使用 Tree Shaking
+
+确保你的代码中只包含需要的部分。Webpack 5 默认支持 tree shaking，但确保你使用的是 ES6 模块。
+
+## 7. 压缩和缩小代码
+
+使用 TerserPlugin 来压缩和缩小 JavaScript 代码：
+
+```javascript
+const TerserPlugin = require('terser-webpack-plugin');
+
+module.exports = {
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+};
+```
+
+## 8. 压缩 CSS
+
+使用 `css-minimizer-webpack-plugin` 压缩和优化 CSS：
+
+```javascript
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+module.exports = {
+  optimization: {
+    minimizer: [
+      '...', // 保留其他默认的 minimizers
+      new CssMinimizerPlugin(),
+    ],
+  },
+};
+```
+
+## 9. 使用 Babel Loader 的缓存
+
+为 `babel-loader` 启用缓存，减少重复编译：
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+          },
+        },
+      },
+    ],
+  },
+};
+```
+
+## 10. 使用 Source Map 以调试
+
+在开发环境中使用轻量的 source map，以加快构建速度：
+
+```javascript
+module.exports = {
+  devtool: 'eval-cheap-module-source-map',
+};
+```
+
+## 11. 使用多线程和缓存
+
+使用 `thread-loader` 和 `cache-loader` 来提高构建速度：
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [
+          'cache-loader',
+          {
+            loader: 'thread-loader',
+            options: {
+              workers: 2,
+            },
+          },
+          'babel-loader',
+        ],
+        exclude: /node_modules/,
+      },
+    ],
+  },
+};
+```
+
+## 12. 图片优化
+
+使用 `image-webpack-loader` 优化图片文件：
+
+```javascript
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.65, 0.90],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75,
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+```
+
+## 13. 使用生产模式构建
+
+确保在生产模式下构建，以启用各种优化功能：
+
+```sh
+NODE_ENV=production webpack --mode production
+```
+
+通过以上方法，可以显著提高 Webpack 构建的性能，减少打包时间和包的大小。如果项目仍然存在性能问题，可以使用 Webpack 的分析工具（如 `webpack-bundle-analyzer`）找出瓶颈并进行优化。
