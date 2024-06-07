@@ -1,7 +1,7 @@
 //////////////////////////////////////////
 // Needle -- HTTP Client for Node.js
 // Written by Tomás Pollak <tomas@forkhq.com>
-// (c) 2012-2020 - Fork Ltd.
+// (c) 2012-2023 - Fork Ltd.
 // MIT Licensed
 //////////////////////////////////////////
 
@@ -10,7 +10,7 @@ var fs          = require('fs'),
     https       = require('https'),
     url         = require('url'),
     stream      = require('stream'),
-    debug       = require('debug')('needle'),
+    debug       = require('util').debuglog('needle'),
     stringify   = require('./querystring').build,
     multipart   = require('./multipart'),
     auth        = require('./auth'),
@@ -97,6 +97,9 @@ var defaults = {
   follow_max              : 0,
   stream_length           : -1,
 
+  // abort signal
+  signal                  : null,
+
   // booleans
   compressed              : false,
   decode_response         : true,
@@ -106,7 +109,8 @@ var defaults = {
   follow_keep_method      : false,
   follow_if_same_host     : false,
   follow_if_same_protocol : false,
-  follow_if_same_location : false
+  follow_if_same_location : false,
+  use_proxy_from_env_var  : true
 }
 
 var aliased = {
@@ -188,7 +192,8 @@ Needle.prototype.setup = function(uri, options) {
     http_opts : {
       agent: get_option('agent', defaults.agent),
       localAddress: get_option('localAddress', undefined),
-      lookup: get_option('lookup', undefined)
+      lookup: get_option('lookup', undefined),
+      signal: get_option('signal', defaults.signal)
     }, // passed later to http.request() directly
     headers   : {},
     output    : options.output,
@@ -204,6 +209,9 @@ Needle.prototype.setup = function(uri, options) {
   keys_by_type(Number).forEach(function(key) {
     config[key] = check_value('number', key);
   })
+
+  if (config.http_opts.signal && !(config.http_opts.signal instanceof AbortSignal))
+    throw new TypeError(typeof config.http_opts.signal + ' received for signal, but expected an AbortSignal');
 
   // populate http_opts with given TLS options
   tls_options.split(' ').forEach(function(key) {
@@ -255,12 +263,14 @@ Needle.prototype.setup = function(uri, options) {
     }
   }
 
-  var env_proxy = utils.get_env_var(['HTTP_PROXY', 'HTTPS_PROXY'], true);
-  if (!config.proxy && env_proxy) config.proxy = env_proxy;
+  if (config.use_proxy_from_env_var) {
+    var env_proxy = utils.get_env_var(['HTTP_PROXY', 'HTTPS_PROXY'], true);
+    if (!config.proxy && env_proxy) config.proxy = env_proxy;
+  }
 
   // if proxy is present, set auth header from either url or proxy_user option.
   if (config.proxy) {
-    if (utils.should_proxy_to(uri)) {
+    if (!config.use_proxy_from_env_var || utils.should_proxy_to(uri)) {
       if (config.proxy.indexOf('http') === -1)
         config.proxy = 'http://' + config.proxy;
 
@@ -442,7 +452,8 @@ Needle.prototype.send_request = function(count, method, uri, config, post_data, 
       returned     = 0,
       self         = this,
       request_opts = this.get_request_opts(method, uri, config),
-      protocol     = request_opts.protocol == 'https:' ? https : http;
+      protocol     = request_opts.protocol == 'https:' ? https : http,
+      signal       = request_opts.signal;
 
   function done(err, resp) {
     if (returned++ > 0)
@@ -478,18 +489,24 @@ Needle.prototype.send_request = function(count, method, uri, config, post_data, 
     done(err || new Error('Unknown error when making request.'));
   }
 
+  function abort_handler() {
+    out.emit('err', new Error('Aborted by signal.'));
+    request.destroy();
+  }
+
   function set_timeout(type, milisecs) {
     if (timer) clearTimeout(timer);
     if (milisecs <= 0) return;
 
     timer = setTimeout(function() {
       out.emit('timeout', type);
-      request.abort();
+      request.destroy();
       // also invoke done() to terminate job on read_timeout
       if (type == 'read') done(new Error(type + ' timeout'));
+
+      signal && signal.removeEventListener('abort', abort_handler);
     }, milisecs);
   }
-
 
   debug('Making request #' + count, request_opts);
   request = protocol.request(request_opts, function(resp) {
@@ -763,7 +780,15 @@ Needle.prototype.send_request = function(count, method, uri, config, post_data, 
     request.end();
   }
 
-  out.abort = function() { request.abort() }; // easier access
+  if (signal) { // abort signal given, so handle it
+    if (signal.aborted === true) {
+      abort_handler();
+    } else {
+      signal.addEventListener('abort', abort_handler, { once: true });
+    }
+  }
+
+  out.abort = function() { request.destroy() }; // easier access
   out.request = request;
   return out;
 }
@@ -798,12 +823,14 @@ module.exports.defaults = function(obj) {
     var target_key = aliased.options[key] || key;
 
     if (defaults.hasOwnProperty(target_key) && typeof obj[key] != 'undefined') {
-      if (target_key != 'parse_response' && target_key != 'proxy' && target_key != 'agent') {
-        // ensure type matches the original, except for proxy/parse_response that can be null/bool or string
+      if (target_key != 'parse_response' && target_key != 'proxy' && target_key != 'agent' && target_key != 'signal') {
+        // ensure type matches the original, except for proxy/parse_response that can be null/bool or string, and signal that can be null/AbortSignal
         var valid_type = defaults[target_key].constructor.name;
 
         if (obj[key].constructor.name != valid_type)
           throw new TypeError('Invalid type for ' + key + ', should be ' + valid_type);
+      } else if (target_key === 'signal' && obj[key] !== null && !(obj[key] instanceof AbortSignal)) {
+        throw new TypeError('Invalid type for ' + key + ', should be AbortSignal');
       }
       defaults[target_key] = obj[key];
     } else {
