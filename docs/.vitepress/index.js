@@ -1049,11 +1049,11 @@ export const leetcodeConfig = [{
                     "link": "/leetcode/problem/0712.md"
                 },
                 {
-                    "text": "0714-undefined",
+                    "text": "0714-Best Time to Buy and Sell Stock with Transaction Fee",
                     "link": "/leetcode/problem/0714.md"
                 },
                 {
-                    "text": "0724-undefined",
+                    "text": "0724-Find Pivot Index",
                     "link": "/leetcode/problem/0724.md"
                 },
                 {
@@ -1216,7 +1216,7 @@ export const leetcodeConfig = [{
             "text": "面试题",
             "items": [
                 {
-                    "text": "i_16.25-undefined",
+                    "text": "i_16.25-LRU 缓存",
                     "link": "/leetcode/problem/i_16.25.md"
                 }
             ],
@@ -1251,11 +1251,11 @@ export const leetcodeConfig = [{
                     "link": "/leetcode/problem/jz_offer_09_1.md"
                 },
                 {
-                    "text": "jz_offer_10_1-undefined",
+                    "text": "jz_offer_10_1-斐波那契数列",
                     "link": "/leetcode/problem/jz_offer_10_1.md"
                 },
                 {
-                    "text": "jz_offer_10_2-undefined",
+                    "text": "jz_offer_10_2-青蛙跳台阶问题",
                     "link": "/leetcode/problem/jz_offer_10_2.md"
                 },
                 {
@@ -1419,7 +1419,7 @@ export const leetcodeConfig = [{
                     "link": "/leetcode/problem/jz_offer_55_1.md"
                 },
                 {
-                    "text": "jz_offer_58_1-undefined",
+                    "text": "jz_offer_58_1-翻转单词顺序",
                     "link": "/leetcode/problem/jz_offer_58_1.md"
                 },
                 {
