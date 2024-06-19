@@ -17,14 +17,14 @@
     "markdown-it": "^13.0.1",
     "vitepress": "^1.0.0-alpha.64",
     "vitepress-plugin-search": "^1.0.4-alpha.19",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "@mermaid-js/mermaid-mindmap": "9.3.0",
+    "vitepress-plugin-mermaid": "2.0.10",
+    "prismjs": "^1.29.0",
+    "mermaid": "9.1.0"
   },
   "dependencies": {
-    "@mermaid-js/mermaid-mindmap": "9.3.0",
     "@vueuse/core": "^10.9.0",
-    "mermaid": "9.1.0",
-    "prismjs": "^1.29.0",
-    "vite": "^4.2.1",
-    "vitepress-plugin-mermaid": "2.0.10"
+    "vite": "^4.2.1"
   }
 }

@@ -393,5 +393,8 @@ export default withMermaid(
 		mermaid: {
 			// ...
 		},
+		mermaidPlugin: {
+			class: "mermaid", // set additional css classes for parent container 
+		},
 	})
 );
