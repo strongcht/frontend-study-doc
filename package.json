@@ -10,18 +10,19 @@
     "docs:serve": "cross-env NODE_OPTIONS=--max-old-space-size=8192 vitepress serve docs"
   },
   "devDependencies": {
+    "@mermaid-js/mermaid-mindmap": "9.3.0",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
     "cross-env": "^7.0.3",
     "flexsearch": "^0.7.31",
     "less": "^4.1.3",
     "less-loader": "^11.1.0",
     "markdown-it": "^13.0.1",
-    "vitepress": "^1.0.0-alpha.64",
-    "vitepress-plugin-search": "^1.0.4-alpha.19",
-    "vue": "^3.2.45",
-    "@mermaid-js/mermaid-mindmap": "9.3.0",
-    "vitepress-plugin-mermaid": "2.0.10",
+    "mermaid": "9.1.0",
     "prismjs": "^1.29.0",
-    "mermaid": "9.1.0"
+    "vitepress": "^1.0.0-alpha.64",
+    "vitepress-plugin-mermaid": "2.0.10",
+    "vitepress-plugin-search": "^1.0.4-alpha.19",
+    "vue": "^3.2.45"
   },
   "dependencies": {
     "@vueuse/core": "^10.9.0",

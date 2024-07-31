@@ -2,6 +2,7 @@
 import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from "vite";
 import flexSearchIndexOptions from "flexsearch";
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import path from 'path';
 //default options
 const options = {
@@ -12,7 +13,7 @@ const options = {
 };
 
 export default defineConfig({
-    plugins: [SearchPlugin(options)],
+    plugins: [SearchPlugin(options), vueJsx()],
     css: {
         preprocessorOptions: {
             less: {

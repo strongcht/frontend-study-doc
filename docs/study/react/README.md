@@ -53,7 +53,7 @@ const element = <div id="divid"></div>
 2. 也可以使用大括号，来在属性值中插入一个 JavaScript 表达式
 ```jsx
 const ahref = 'https://www.baidu.com'
-const element = <a href={ahref} />
+const element = <a href={ahref} ></a>
 ```
 3. 注意：对于同一属性不能同时使用{}和引号，只能两种符号中选一个，JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 camelCase（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定
 
@@ -61,7 +61,7 @@ const element = <a href={ahref} />
 1. 假如一个标签里面没有内容，你可以使用 /> 来闭合标签
 ```jsx
 const ahref = 'https://www.baidu.com'
-const element = <a href={ahref} />
+const element = <a href={ahref} ></a>
 ```
 2. JSX 标签里能够包含很多子元素
 ```jsx
@@ -148,7 +148,7 @@ const element = <Welcome name="king"></Welcome>
 2. 自定义组件。自定义组件其实就是自己创建的组件，使用时必须以大写字母开头，例如 TopicList、TopicDetail。
 ### 自定义组件为什么需要以大写字母开头？
 因为应用 JSX 进行开发的时候，其实它最终会转化成React.createElement()去创建元素。如果是小写字母命名的组件的 JSX 会解析为字符串，大写字母开头的组件会解析为变量。
-```js
+```jsx
 /*内置组件*/
 function testComp() {
     return <div id="divid">test<div>
@@ -961,7 +961,7 @@ function onRenderCallback(
 ### Diffing 算法
 当对比两颗树时，React 首先比较两棵树的根节点。不同类型的根节点元素会有不同的形态。
 1. 比对不同类型的元素
-当根节点为不同类型的元素时，React 会拆卸原有的树并且建立起新的树。举个例子，当一个元素从 <a> 变成 <img>，从 <Article> 变成 <Comment>，或从 <Button> 变成 <div> 都会触发一个完整的重建流程。
+当根节点为不同类型的元素时，React 会拆卸原有的树并且建立起新的树。举个例子，当一个元素从 `<a> `变成 `<img>`，从 `<Article>` 变成 `<Comment>`，或从 `<Button>` 变成 `<div>` 都会触发一个完整的重建流程。
 
 当拆卸一棵树时，对应的 DOM 节点也会被销毁。组件实例将执行 componentWillUnmount() 方法。当建立一棵新的树时，对应的 DOM 节点会被创建以及插入到 DOM 中。组件实例将执行 componentWillMount() 方法，紧接着 componentDidMount() 方法。所有跟之前的树所关联的 state 也会被销毁。
 2. 比对同一类型的元素
