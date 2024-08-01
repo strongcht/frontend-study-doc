@@ -47,18 +47,23 @@ const element = <h1>Hello, {name}!</h1>;
 
 ### JSX 特定属性
 1. 可以通过使用引号，来将属性值指定为字符串字面量
+
 ```jsx
 const element = <div id="divid"></div>
 ```
+
 2. 也可以使用大括号，来在属性值中插入一个 JavaScript 表达式
+
 ```jsx
 const ahref = 'https://www.baidu.com'
 const element = <a href={ahref} ></a>
 ```
+
 3. 注意：对于同一属性不能同时使用{}和引号，只能两种符号中选一个，JSX 语法上更接近 JavaScript 而不是 HTML，所以 React DOM 使用 camelCase（小驼峰命名）来定义属性的名称，而不使用 HTML 属性名称的命名约定
 
 ### 使用 JSX 指定子元素
-1. 假如一个标签里面没有内容，你可以使用 /> 来闭合标签
+1. 假如一个标签里面没有内容，你可以使用 `/>` 来闭合标签
+
 ```jsx
 const ahref = 'https://www.baidu.com'
 const element = <a href={ahref} ></a>
