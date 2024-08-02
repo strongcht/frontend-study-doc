@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress';
-import { leetcodeConfig } from './index.js';
 import { withMermaid } from "vitepress-plugin-mermaid";
 
 export default withMermaid(
@@ -17,7 +16,6 @@ export default withMermaid(
 			nav: [
 				{ text: '每日笔记', link: '/notes/' },
 				{ text: '学习笔记', link: '/study/' },
-				{ text: 'leetcode', link: '/leetcode/' },
 			],
 			// 侧边栏配置
 			sidebar: {
@@ -129,6 +127,7 @@ export default withMermaid(
 							text: 'Vue-Router',
 							items: [
 								{ text: '介绍', link: '/study/vue/vue2/router/README' },
+								{ text: 'router模式', link: '/study/vue/vue2/router/mode' },
 								{ text: '路由安装', link: '/study/vue/vue2/router/install' },
 								{ text: 'matcher介绍', link: '/study/vue/vue2/router/matcher' },
 								{ text: '路由切换', link: '/study/vue/vue2/router/change' },
@@ -219,6 +218,13 @@ export default withMermaid(
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
 				}, {
+					text: '微前端学习',
+					items: [
+						{ text: '什么是微前端', link: '/study/micro-frontends/README' },
+					],
+					collapsible: true, // 菜单是否为可折叠的
+					collapsed: true // 是否默认折叠 
+				}, {
 					text: 'javaScript',
 					items: [
 						{ text: 'ES6', link: '/study/javaScript/ES6' },
@@ -270,6 +276,8 @@ export default withMermaid(
 						{ text: '其他概念', link: '/study/other/其他概念' },
 						{ text: 'rollup', link: '/study/other/rollup' },
 						{ text: '性能优化', link: '/study/other/performance-optimization' },
+						{ text: 'monorepo', link: '/study/other/monorepo-大型前端项目管理模式实践' },
+						{ text: '项目发布流程', link: '/study/other/项目发布流程' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
@@ -365,8 +373,7 @@ export default withMermaid(
 						collapsible: true, // 菜单是否为可折叠的
 						collapsed: true // 是否默认折叠 
 					}
-				],
-				'leetcode': leetcodeConfig
+				]
 			},
 			// 社交链接
 			socialLinks: [{ icon: "github", link: "https://github.com/chenhongtao-cht/frontend-study-doc.git" }],
