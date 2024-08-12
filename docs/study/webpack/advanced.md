@@ -209,7 +209,7 @@ module.exports = {
 在处理完以上三个`.js`文件后，我们需要做一件事情：
 
 - 当处于开发环境下时，把`webpack.common.js`中的配置和`webpack.dev.js`中的配置合并在一起
-- 当处于开发环境下时，把`webpack.common.js`中的配置和`webpack.prod.js`中的配置合并在一起
+- 当处于生产环境下时，把`webpack.common.js`中的配置和`webpack.prod.js`中的配置合并在一起
 
 针对以上问题，我们可以使用`webpack-merge`进行合并，在使用之前，我们需要使用如下命令进行安装：
 

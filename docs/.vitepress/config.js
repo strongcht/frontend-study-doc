@@ -194,6 +194,29 @@ export default withMermaid(
 					collapsed: true // 是否默认折叠 
 				},
 				{
+					text: 'REACT学习笔记',
+					items: [
+						{ text: 'REACT', link: '/study/react/README' },
+						{
+							text: 'the-road-to-learn-react',
+							items: [
+								{ text: '第一章', link: 'study/react/the-road-to-learn-react/chapter1-cn' },
+								{ text: '第二章', link: 'study/react/the-road-to-learn-react/chapter2-cn' },
+								{ text: '第三章', link: 'study/react/the-road-to-learn-react/chapter3-cn' },
+								{ text: '第四章', link: 'study/react/the-road-to-learn-react/chapter4-cn' },
+								{ text: '第五章', link: 'study/react/the-road-to-learn-react/chapter5-cn' },
+								{ text: '第六章', link: 'study/react/the-road-to-learn-react/chapter6-cn' },
+								{ text: '部署', link: 'study/react/the-road-to-learn-react/deployChapter-cn' },
+								{ text: '概述', link: 'study/react/the-road-to-learn-react/finalwords-cn' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+					],
+					collapsible: true, // 菜单是否为可折叠的
+					collapsed: true // 是否默认折叠 
+				},
+				{
 					text: '面试',
 					items: [
 						{ text: '20240129-面试题', link: '/study/interview/20240129' },
