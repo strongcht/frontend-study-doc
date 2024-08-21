@@ -392,6 +392,7 @@ export default withMermaid(
 							{ text: '2024-05-15-xss攻击前端处理', link: '/notes/days/2024-05-15-xss攻击前端处理' },
 							{ text: '2024-07-03-专业一面', link: '/notes/days/2024-07-03-专业一面' },
 							{ text: '2024-07-25-面试准备', link: '/notes/days/2024-07-25-准备' },
+							{ text: '2024-08-15-项目部署', link: '/notes/days/2024-08-15-项目部署' },
 						],
 						collapsible: true, // 菜单是否为可折叠的
 						collapsed: true // 是否默认折叠 

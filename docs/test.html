@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算模版</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        // 输入：2 3 6 1 4
+        // 输出：11 9 6 11 4
+        const maxSumSide = (nums) => {
+            let stack = [];
+            const res = [];
+            const len = nums.length;
+            const left = new Array(len).fill(0);
+            const right = new Array(len).fill(0);
+            // 左侧比自己大的和
+            for (let i = 0; i < len; i++) {
+                let sum = 0;
+                while (stack.length && stack[stack.length - 1] >= nums[i]) {
+                    const temp = stack.pop();
+                    sum += temp;
+                }
+
+                left[i] = sum;
+
+                stack.push(nums[i]);
+            }
+            stack = [];
+            let sum = 0;
+            for (let i = 0; i < len; i++) {
+                if (i != 0) {
+
+                }
+                for (let j = i + 1; j < len; j++) {
+                    if (nums[j] > nums[])
+                }
+                while (stack.length && stack[stack.length - 1] >= nums[i]) {
+                    const temp = stack.pop();
+                    sum += temp;
+                }
+
+                sum += nums[i];
+
+                stack.push(nums[i]);
+            }
+            // 右侧比自己大的和
+            // for (let i = 0; i < len; i++) {
+
+            // }
+
+            for (let i = 0; i < len; i++) {
+                res.push(Math.max(left[i], right[i]) + nums[i])
+            }
+            return res;
+        };
+
+
+
+        const result = maxSumSide([2, 3, 6, 1, 4]);
+        const el = document.getElementById('result');
+        el.innerHTML = result;
+
+    </script>
+</body>
+
+</html>
