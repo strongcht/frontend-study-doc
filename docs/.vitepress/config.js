@@ -237,6 +237,17 @@ export default withMermaid(
 							collapsible: true,
 							collapsed: true
 						},
+						{
+							text: 'blog-基础知识',
+							items: [
+								{ text: '基础知识篇', link: '/study/interview/blog-main/前端知识体系总结（基础知识篇）' },
+								{ text: '前端框架+浏览器原理篇', link: '/study/interview/blog-main/前端知识体系总结（前端框架+浏览器原理篇）' },
+								{ text: '工程化篇', link: '/study/interview/blog-main/前端知识体系总结（工程化篇）' },
+								{ text: '算法篇', link: '/study/interview/blog-main/前端知识体系总结（算法篇）' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
