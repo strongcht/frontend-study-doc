@@ -217,9 +217,9 @@ export default withMermaid(
 					collapsed: true // 是否默认折叠 
 				},
 				{
-					text: '面试',
+					text: 'interview',
 					items: [
-						{ text: '20240129-面试题', link: '/study/interview/20240129' },
+						{ text: '20240129-学习资料', link: '/study/interview/20240129' },
 						{ text: '学习资料(一)HTML', link: '/study/interview/20240326-学习资料(一)HTML' },
 						{ text: '学习资料(二)CSS', link: '/study/interview/20240326-学习资料(二)CSS' },
 						{ text: '学习资料(三)JS', link: '/study/interview/20240327-学习资料(三)JS' },
@@ -228,7 +228,7 @@ export default withMermaid(
 						{ text: '学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
 						{ text: '学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
 						{ text: '学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
-						{ text: '2024-05-24-面试题', link: '/study/interview/2024-05-24' },
+						{ text: '2024-05-24-学习资料', link: '/study/interview/2024-05-24' },
 						{
 							text: 'javaScript',
 							items: [
@@ -366,8 +366,6 @@ export default withMermaid(
 							collapsible: true,
 							collapsed: true
 						},
-						{ text: 'LeetCode高频算法', link: '/study/algo/leetCode' },
-						{ text: 'LeetCode题解', link: '/study/algo/leetcode-master/index' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 

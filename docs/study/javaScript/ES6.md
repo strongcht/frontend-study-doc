@@ -3644,7 +3644,7 @@ p1.then((res) => {
 });
 ```
 
-### 响应对个 Promise
+### 响应多个 Promise
 
 #### Promise.all()方法
 
