@@ -32,3 +32,5 @@
 1. `subscribeAction`设计思想。
 1. `registerModule`设计思想。
 1. `unregisterModule`设计思想。
+
+[vuex 工作原理详解](https://www.jianshu.com/p/d95a7b8afa06)  
