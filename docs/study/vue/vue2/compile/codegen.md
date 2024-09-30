@@ -4,7 +4,6 @@
 
 `codegen`代码生成阶段的逻辑相对来说还是比较多的，在这一节我们尽可能的分析常见的使用场景，例如：对`v-for`、`v-if/v-else`以及`v-for`等场景代码生成流程的分析。
 
-
 在`baseCompile`方法中，我们可以看到在`parse`和`optimize`这两个主要流程之后，最后一步`codegen`的过程：
 ```js
 import { generate } from './codegen/index'
