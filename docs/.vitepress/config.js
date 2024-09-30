@@ -288,6 +288,9 @@ export default withMermaid(
 						{ text: 'webpack性能优化', link: '/study/webpack/optimization' },
 						{ text: '编写自己的Loader', link: '/study/webpack/loader' },
 						{ text: '编写自己的Plugin', link: '/study/webpack/plugin' },
+						{ text: '初探webpack之编写loader', link: '/study/webpack/初探webpack之编写loader' },
+						{ text: '初探webpack之编写plugin', link: '/study/webpack/初探webpack之编写plugin' },
+						{ text: 'hooks', link: '/study/webpack/hooks' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
 					collapsed: true // 是否默认折叠 
