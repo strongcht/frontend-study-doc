@@ -331,6 +331,7 @@ export default withMermaid(
 					text: 'xiaochengxu',
 					items: [
 						{ text: '微信小程序', link: '/study/xiaochengxu/微信小程序' },
+						{ text: '支付宝小程序', link: '/study/xiaochengxu/支付宝小程序' },
 						{ text: 'uniapp', link: '/study/xiaochengxu/uniapp' },
 					],
 					collapsible: true, // 菜单是否为可折叠的
