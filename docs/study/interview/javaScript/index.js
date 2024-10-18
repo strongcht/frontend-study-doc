@@ -57,6 +57,7 @@ function myBind(context, args) {
     return result;
 }
 
+// [JS高级 - 手写Promise详解](https://mp.weixin.qq.com/s/Kj6yIae6AU1u818211KowQ)
 function myPromise(fn) {
     const that = this;
 
@@ -70,23 +71,24 @@ function myPromise(fn) {
         if (val instanceof myPromise) {
             return val.then(reslove, reject);
         }
-        setTimeout(() => {
-            if (that.state === 'pending') {
-                that.state = 'fulfilled';
-                that.value = val;
-                that.onFulfilledCallBack.forEach(fn => fn());
-            }
-        }, 0)
+        if (that.state === 'pending') {
+            that.state = 'fulfilled';
+            that.value = val;
+
+            queueMicrotask(() => {
+                that.onFulfilledCallBack.forEach(fn => fn(that.value));
+            });
+        }
     }
 
     function reject(err) {
-        setTimeout(() => {
-            if (that.state === 'pending') {
-                that.state = 'rejected';
-                that.error = err;
-                that.onRejectedCallBack.forEach(fn => fn());
-            }
-        }, 0)
+        if (that.state === 'pending') {
+            that.state = 'rejected';
+            that.error = err;
+            queueMicrotask(() => {
+                that.onRejectedCallBack.forEach(fn => fn(that.error));
+            });
+        }
     }
 
     try {
@@ -105,27 +107,27 @@ myPromise.prototype.then = function (onFulfilled, onRejected) {
 
     if (that.state === 'fulfilled') {
         return promise2 = new myPromise((reslove, reject) => {
-            setTimeout(() => {
+            queueMicrotask(() => {
                 try {
                     const x = onFulfilled(that.value);
                     reslovePromise(promise2, x, reslove, reject);
                 } catch (err) {
                     reject(err);
                 }
-            }, 0)
+            })
         })
     }
 
     if (that.state === 'rejected') {
         return promise2 = new myPromise((reslove, reject) => {
-            setTimeout(() => {
+            queueMicrotask(() => {
                 try {
                     const x = onRejected(that.error);
                     reslovePromise(promise2, x, reslove, reject);
                 } catch (err) {
                     reject(err);
                 }
-            }, 0)
+            })
         })
     }
 
