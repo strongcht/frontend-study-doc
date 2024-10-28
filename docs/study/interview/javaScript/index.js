@@ -381,3 +381,198 @@ function mergeSort() {
 
 }
 
+// 数组
+// 1. 最长递增子序列 （动态规划）
+// 输入： [3,5,7,1,2,8] 输出：[3,5,7,8]
+
+function lengthOfLIS(nums) {
+    const dp = new Array(nums.length).fill(1);
+
+    for (let i = 0; i < nums.length; i++) {
+        for (let j = i; i < nums.length; j++) {
+            if (nums[i] < nums[j]) {
+                dp[j] = Math.max(dp[j], dp[i] + 1);
+            }
+        }
+    }
+    return Math.max(...dp);
+}
+
+// 2.买股票问题（动态规划）
+// [1, 12, 13, 9, 15, 8, 6, 16]，fee为 2，求获得利润的最大值一次买入 卖出只收一次手续费
+
+function buyStock(nums, fee) {
+
+    // dp[i][0] 第i天介绍手里没有股票的最大利润
+    // dp[i][0] = Math.max(dp[i - 1][1] + nums[i] - fee, dp[i - 1][0]);
+    // dp[i][1] 第i天介绍手里有股票的最大利润
+    // dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - nums[i] - fee);
+
+    const dp = Array.from(new Array(nums.length), () => new Array(2).fill(0));
+    dp[0][0] = 0;
+    dp[0][1] = -nums[0] - fee;
+
+    for (let i = 1; i < nums.length; i++) {
+        dp[i][0] = Math.max(dp[i - 1][1] + nums[i] - fee, dp[i - 1][0]);
+        dp[i][1] = Math.max(dp[i - 1][1], dp[i - 1][0] - nums[i] - fee);
+    }
+
+    return dp[nums.length - 1][0];
+}
+
+// 3.硬币找零问题 (动态规划) 
+// 贪心算法存在问题 coins: [1, 20, 50] amount: 60 贪心算法 50 + 10 * 1  正确答案 20 + 20 + 10
+
+// 输入 coins = [1, 2, 5], amount = 11  最少硬币数 没有返回-1
+
+function findCoins(coins, amount) {
+    if (coins.length === 0) return -1;
+    const dp = new Array(amount + 1).fill(Infinity);
+    dp[0] = 0;
+
+    for (let i = 1; i <= amount; i++) {
+        for (let j = 0; j < coins.length; j++) {
+            if (i - coins[j] >= 0) {
+                dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+            }
+        }
+    }
+
+    return dp[amount] === Infinity ? -1 : dp[amount];
+}
+
+// 4. 数组拼接最小值(sort排序)
+// 如[3, 45, 12]，拼接的最小值为12345
+function printMinNumber(arr) {
+    arr.sort((a, b) => {
+        return (`${a}${b}`) - (`${b}${a}`);
+    });
+
+    return arr.join('');
+}
+
+// 5.奇偶排序（双指针）
+// 一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分
+function exchangeOddEven(arr) {
+    let l = 0, r = arr.length - 1;
+
+    while (l < r) {
+        while (l < r && arr[l] % 2 === 1) {
+            l++
+        }
+
+        while (l < r && arr[r] % 2 === 0) {
+            r--;
+        }
+
+        if (l < r) {
+            [arr[l], arr[r]] = [arr[r], arr[l]];
+            l++;
+            r--;
+        }
+
+    }
+    return arr;
+}
+
+// 6.两数之和(Map 快速查找)
+// 给定一个整数数组 nums 和一个目标值 target在该数组中找出和为目标值的两个整数，并返回他们
+function twoSum(arr, target) {
+    const map = new Map();
+
+    for (let i = 0; i < arr.lengthl i++) {
+        const count = target - arr[i];
+        if (map.has(count)) {
+            return [i, map.get(count)]
+        }
+
+        map.set(arr[i], i);
+    }
+    return [];
+}
+
+// 7.三数之和（双指针）
+// 给定一个整数数组，找出所有满足条件的三个数，使得三个数的和为0，返回所有满足条件的数组
+function threeSum(arr, target) {
+    arr.sort();
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (i > 0 && arr[i] === arr[i - 1]) continue;
+        let l = i + 1, r = arr.length - 1;
+        const count = target - arr[i];
+
+        while (l < r) {
+
+            if (arr[l] + arr[r] === count) {
+                result.push([arr[i], arr[l++], arr[r--]]);
+
+                while (l < r && arr[l] === arr[l - 1]) {
+                    l++;
+                }
+
+                while (l < r && arr[r] === arr[r + 1]) {
+                    r--;
+                }
+            } else if (arr[l] + arr[r] < count) {
+                l++;
+            } else {
+                r--;
+            }
+
+        }
+    }
+
+    return result;
+}
+
+// 8.四数之和
+// 给定一个整数数组 nums，判断 nums 中是否存在四个元素a，b，c，d ，使得 a + b + c + d = target，找出所有满足条件且不重复的四元组合
+
+function fourSum(arr, target) {
+    if (arr.length < 4) return [];
+    arr.sort();
+    const result = [];
+    const length = arr.length;
+
+    for (let i = 0; i < length - 3; i++) {
+        if (i > 0 && arr[i] === arr[i - 1]) continue;
+        if (arr[i] + arr[i + 1] + arr[i + 2] + arr[i + 3] > target) break;
+        if (arr[i] + arr[length - 1] + arr[length - 2] + arr[length - 3] < target) continue;
+
+        for (let j = i + 1; j < length - 2; j++) {
+            if (j > i + 1 && arr[j] === arr[j - 1]) continue;
+            if (arr[i] + arr[j] + arr[j + 1] + arr[j + 2] > target) break;
+            if (arr[i] + arr[j] + arr[length - 1] + arr[length - 2] < target) continue;
+            let l = j + 1, r = length - 1;
+            const count = target - arr[i] - arr[j];
+
+            while (l < r) {
+                if (arr[l] + arr[r] === count) {
+                    result.push([arr[i], arr[j], arr[l++], arr[r--]]);
+                    while (l < r && arr[l] === arr[l - 1]) {
+                        l++;
+                    }
+
+                    while (l < r && arr[r] === arr[r + 1]) {
+                        r--;
+                    }
+                } else if (arr[l] + arr[r] < count) {
+                    l++;
+                } else {
+                    r--;
+                }
+            }
+
+
+
+        }
+    }
+
+    return result;
+}
+
+// 9.连续整数之和 （滑动窗口）
+// 给定一个正整数 target，输出所有和为 target 的连续正整数序列（至少含有两个数）
+
+
+
