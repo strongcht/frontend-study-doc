@@ -75,7 +75,7 @@
 #### 12. Promise
     + promise: pedding fulfilled rejected
     + promise.reslove() promise.reject()
-    + Promise.all race allSettled any 
+    + Promise.all race allSettled any try
     + Promise.prototype.then catch finally
 #### 13. Iterator
     + 迭代器
@@ -111,7 +111,7 @@
 #### 17. module
     + Commonjs 运行时加载，无法做静态分析； module 编译时加载（静态加载）、可以做静载资源分析
     + Commonjs require()可以在代码的任意位置，是同步加载代码； module 的import export 只能存在模块的顶层 因为是编译时 不会去分析代码逻辑 可以使用import() 是运行时加载的-返回的是一个promise 是异步加载；
-    + CommonJS 模块输出的是值的缓存，不存在动态更新; export 导出的值可以动态更新， import  导入的都是只读的，如果是对象值修改是可以的其他模块也可以读到修改后的值；import 可以提升的 先试用 再导入也是可以的； import 是单例模式 多次导入 不同 只会执行一次
+    + CommonJS 模块输出的是值的缓存，不存在动态更新; export 导出的值可以动态更新， import  导入的都是只读的，如果是对象值修改是可以的其他模块也可以读到修改后的值；import 可以提升的 先使用 再导入也是可以的； import 是单例模式 多次导入 不同 只会执行一次
     + 浏览器加载 Es6模块 `<script type="module"></script>` 异步加载 相当于增加 defer 渲染完后再执行； async 是加载完就执行 ；模块自成作用域 不会干扰外部作用域 默认严格模式，this为undefiend 
     + Commonjs 输出的是值的拷贝；export 是值的引用
     + nodejs 中 mjs--es6 、cjs--commonjs

@@ -2,10 +2,10 @@ vue study
 
 ## vuejs文档阅读
 #### 1.  v-for Object
-    + 循环的逻辑按 key的值排序 先数字 在字母顺序 在symbol
+    + 循环的逻辑按 Object.keys()的值排序 先数字 在字母顺序 在symbol
     + vue3.x v-if的优先级 高于 v-for ; vue2.x 中 v-if的优先级 低于 v-for;
 #### 2. watch 新增
-    + deep 后跟数字 则按深度监听
+    + deep 后跟数字 则按数字层数深度监听
     + 增加once: true 只执行一次
     + watch 内新增 onWatcherClearup() 钩子 当监听器失效并准备重新运行时会调用
     ```vue
@@ -14,7 +14,7 @@ vue study
                 console.log('监听器失效执行')
             }
         }
-
+        // 第三个参数
         watch(id, (newId, oldId, onClearnup) => {
 
             onClearnup() {
@@ -178,8 +178,8 @@ vue study
 #### 9. Teleport 新增defer属性
     + 延迟解析teleport 的目标容器
     ```
-    <teleport to="#app" >
-        <div v-if="show" :defer="true"> 
+    <teleport to="#app" defer >
+        <div v-if="show"> 
             <h1>Hello World</h1>
         </div>
     </teleport>
@@ -212,7 +212,7 @@ vue study
 #### 1. vue2.0 与 vue3.0有哪些变化？
     + a. 在使用中的变化
         （1）vue3 支持组合式API可以更好的代码组织与代码复用， vue2.7以前的版本只支持选项式API，mixins做代码复用逻辑
-        （2）vue3 引入document.fragment支出多根节点， vue2 中只支持单根节点
+        （2）vue3 引入documentFragment支出多根节点， vue2 中只支持单根节点
         （3）vue3中v-if的优先级高于v-for， vue2中v-if的优先级低于v-for
         （4）vue3的生命周期与vue2的生命周期有变化
     + b. 在源码底层实现的变化
@@ -252,9 +252,3 @@ vue study
 
     运行时：
     new Function(render) -> vnode -> diff(patch) -> update 
-
-
-
-
-
-    
