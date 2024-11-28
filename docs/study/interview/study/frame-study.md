@@ -1,6 +1,6 @@
-vue study
+frame study
 
-## vuejs文档阅读
+## 一、vuejs文档阅读
 #### 1.  v-for Object
     + 循环的逻辑按 Object.keys()的值排序 先数字 在字母顺序 在symbol
     + vue3.x v-if的优先级 高于 v-for ; vue2.x 中 v-if的优先级 低于 v-for;
@@ -252,3 +252,11 @@ vue study
 
     运行时：
     new Function(render) -> vnode -> diff(patch) -> update 
+
+## vue router
+
+## pinia
+
+## vuex
+
+## react
