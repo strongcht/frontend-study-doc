@@ -219,7 +219,6 @@ export default withMermaid(
 				{
 					text: 'interview',
 					items: [
-						{ text: '20240129-学习资料', link: '/study/interview/20240129' },
 						{ text: '学习资料(一)HTML', link: '/study/interview/20240326-学习资料(一)HTML' },
 						{ text: '学习资料(二)CSS', link: '/study/interview/20240326-学习资料(二)CSS' },
 						{ text: '学习资料(三)JS', link: '/study/interview/20240327-学习资料(三)JS' },
@@ -228,11 +227,16 @@ export default withMermaid(
 						{ text: '学习资料(六)性能优化', link: '/study/interview/20240327-学习资料(六)性能优化' },
 						{ text: '学习资料(七)手写代码', link: '/study/interview/20240327-学习资料(七)手写代码' },
 						{ text: '学习资料(八)输出结果', link: '/study/interview/20240327-学习资料(八)输出结果' },
-						{ text: '2024-05-24-学习资料', link: '/study/interview/2024-05-24' },
+						{ text: '微前端', link: '/study/micro-frontends/README.md' },
+						{ text: 'vue-i18n', link: '/study/other/vue-i18n' },
 						{
 							text: 'javaScript',
 							items: [
-								{ text: '2024-04-10-面试题', link: '/study/interview/javaScript/2024-04-10-学习资料' },
+								{ text: '2024-01-29', link: '/study/interview/javaScript/20240129' },
+								{ text: '2024-04-10', link: '/study/interview/javaScript/2024-04-10-学习资料' },
+								{ text: '2024-05-24', link: '/study/interview/javaScript/2024-05-24' },
+								{ text: '2024-09-19', link: '/study/interview/javaScript/20240919' },
+								{ text: '2024-10-24', link: '/study/interview/javaScript/2024-10-24' },
 							],
 							collapsible: true,
 							collapsed: true
