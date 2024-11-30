@@ -176,7 +176,7 @@ export default withMermaid(
 						{
 							text: 'Vue-Router',
 							items: [
-								{ text: '介绍', link: '/study/vue/vue3/router/README' },
+								{ text: 'vue-router介绍', link: '/study/vue/vue3/router/README' },
 							],
 							collapsible: true,
 							collapsed: true
@@ -184,7 +184,15 @@ export default withMermaid(
 						{
 							text: 'Pinia',
 							items: [
-								{ text: '介绍', link: '/study/vue/vue3/pinia/README' },
+								{ text: 'pinia介绍', link: '/study/vue/vue3/pinia/README' },
+							],
+							collapsible: true, // 菜单是否为可折叠的
+							collapsed: true // 是否默认折叠 
+						},
+						{
+							text: 'Vite',
+							items: [
+								{ text: 'vite介绍', link: '/study/vue/vue3/vite/README' },
 							],
 							collapsible: true, // 菜单是否为可折叠的
 							collapsed: true // 是否默认折叠 
