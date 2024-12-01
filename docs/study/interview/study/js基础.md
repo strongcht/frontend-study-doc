@@ -1,3 +1,30 @@
+## html
+#### 1. html新增了哪些特性
+    + 语义化标签 `footer nav main aside section`
+    + input 类型
+    + video audio
+    + session Storage local Storage 
+    + svg canvas
+    + websocket geolocation
+#### 2. 行内元素和块级元素
+    + 行内 a span input img
+    + 块级元素 div p li h 
+#### 3. 声明 `<!DOCTYPE html>`
+
+## css
+#### 1. 外部样式 内部样式 内敛样式
+#### 2. 选择器 优先级
+#### 3. 盒子模型
+#### 4. 可继承与不可继承
+#### 5. 盒子模型
+#### 6. 回流重绘
+#### 7. BFC
+#### 8. 浮动
+#### 9. flex grid
+#### 10. 预处理器 后处理器 
+#### 11.引入方式 link @import
+#### 12. 动画 requestAminationFrame 定位
+
 ## js 基础
 #### 1. 数据类型
     Number、String、Boolean、BigInt、Symbol、Null、Undefined、Object

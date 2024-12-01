@@ -415,7 +415,6 @@ export default withMermaid(
 							{ text: '20231226-webpack-loader-and-plugin', link: '/notes/days/20231226-webpack-loader-and-plugin' },
 							{ text: '2024-04-22-webComponents学习笔记', link: '/notes/days/2024-04-22-webComponents学习笔记' },
 							{ text: '2024-05-15-xss攻击前端处理', link: '/notes/days/2024-05-15-xss攻击前端处理' },
-							{ text: '2024-07-03-专业一面', link: '/notes/days/2024-07-03-专业一面' },
 							{ text: '2024-07-25-面试准备', link: '/notes/days/2024-07-25-准备' },
 							{ text: '2024-08-15-项目部署', link: '/notes/days/2024-08-15-项目部署' },
 						],
