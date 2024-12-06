@@ -425,4 +425,77 @@ function deepClone(target) {
 }
 ```
 
+```js
+// 可立即执行的debounce
+function debounce(fn, wait, immediate) {
+    let timer = null; 
+    return function () {
+        const context = this;
+        const args = [...arguments];
+        if(timer) {
+            clearTimeout(timer)
+        }
+        if(immediate) {
+            const callNow = !timer;
+            timer = setTimeout(() => {
+                timer = null;
+            },  wait);
+            if(callNow) fn.apply(context, args);
+        } else {
+            timer = setTimeout(() => {
+                fn.apply(context, args);
+            }, wait) 
+        }
+    }
+}
+
+```
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>懒加载</title>
+    <style>
+        .contioner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .lazy-img {
+            width: 300px;
+            height:300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contioner">
+        <img class="lazy-img" src="./defult.png" alt="懒加载图片" data-src="./lazy-img1.png"> 
+        <img class="lazy-img" src="./defult.png" alt="懒加载图片" data-src="./lazy-img2.png"> 
+        <img class="lazy-img" src="./defult.png" alt="懒加载图片" data-src="./lazy-img3.png"> 
+    </div>
+
+    <script>
+        const imgList = document.querySelectorAll('.lazy-img');
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(item => {
+                if(item.isIntersecting) {
+                    const img = item.target;
+                    img.src = img.dataset.src;
+                    obs.unobserve(img);
+                }
+            })
+        });
+
+        imgList.forEach(img => observer.observe(img));
+
+    </script>
+</body>
+</html>
+
+```
+
 
