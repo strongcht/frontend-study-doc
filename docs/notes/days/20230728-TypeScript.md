@@ -315,7 +315,7 @@ const result = 1 + true; // 在JavaScript中, 结果等于2
 
 ### TypeScript 代码生成
 
-TypeScript 编译器有两个主要职责：检查类型错误和编译为 JavaScript。这两个过程是相互独立的。类型不会影响 JavaScript 引擎中代码的执行，因为它们在编译过程中会被完全擦除。即使存在类型错误，TypeScript 仍然可以输出 JavaScript。以下是存在类型错误的 TypeScript 代码示例：
+TypeScript 编译器有两个主要职责：**检查类型错误和编译为 JavaScript**。这两个过程是相互独立的。类型不会影响 JavaScript 引擎中代码的执行，因为它们在编译过程中会被完全擦除。即使存在类型错误，TypeScript 仍然可以输出 JavaScript。以下是存在类型错误的 TypeScript 代码示例：
 
 <!-- skip -->
 ```typescript
