@@ -1,0 +1,61 @@
+name: Build note to aliyun
+on:
+  #监听push操作
+  push:
+    branches:
+      # master分支，你也可以改成其他分支
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x] # 可以指定多个希望测试的Node.js版本
+
+    steps:
+      - name: Checkout Github Action
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          
+      - name: Install npm dependencies
+        run: yarn
+
+      - name: Run build task
+        run: yarn docs:build
+
+      - name: Clean remote directory
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.ALIYUN_ECS_IP }}
+          username: root
+          key: ${{ secrets.ALIYUN }}
+          script: |
+            rm -rf /usr/share/nginx/html/doc/*
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.ALIYUN }}
+          ARGS: "-rlgoDzvc -i --delete"
+          SOURCE: "docs/.vitepress/dist/"
+          REMOTE_HOST: ${{ secrets.ALIYUN_ECS_IP }}
+          REMOTE_USER: root
+          TARGET: "/usr/share/nginx/html/doc/"
+
+      # - name: Deploy to Server
+      #   uses: wlixcc/SFTP-Deploy-Action@v1.0 
+      #   with:  
+      #     username: 'root'   #ssh user name
+      #     server: '${{ secrets.ALIYUN_ECS_IP }}' #引用之前在gituhb actions中创建好的secret
+      #     ssh_private_key: ${{ secrets.ALIYUN }} #引用之前在gituhb actions中创建好的secret
+      #     local_path: './docs/.vitepress/dist/'  # 对应我们项目build后结果的文件夹路径
+      #     remote_path: '/usr/local/nginx/html/doc' # 对应服务器存放的目录
+          
+      #     # sftp> put -r ./docs/.vitepress/dist /usr/local/nginx/html/doc
+      #     # 这条命令的意思是将本地目录 ./docs/.vitepress/dist 下的所有文件和子目录递归地上传到远程服务器的 /usr/local/nginx/html/doc 目录中 速度比较慢
+
