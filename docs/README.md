@@ -16,3 +16,15 @@
 `https://github.com/strongcht/frontend-study-doc.git`
 
 ## 测试
+
+
+```js
+const viewModules = import.meta.glob('@/views/**/index.vue');
+
+function loadView(routePath) {
+  return viewModules[`/src/views${routePath}/index.vue`];
+}
+
+// 示例
+const component = loadView(route.path);
+```
