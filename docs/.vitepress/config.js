@@ -418,6 +418,8 @@ export default withMermaid(
 							{ text: '2024-07-25-面试准备', link: '/notes/days/2024-07-25-准备' },
 							{ text: '2024-08-15-项目部署', link: '/notes/days/2024-08-15-项目部署' },
 							{ text: '2025-01-02-环境配置', link: '/notes/days/2025-01-02-环境配置' },
+							{ text: '20250114-vue2-ant升级vue3-antd记录', link: '/notes/days/20250114-vue2-ant升级vue3-antd记录' },
+							
 						],
 						collapsible: true, // 菜单是否为可折叠的
 						collapsed: true // 是否默认折叠 
