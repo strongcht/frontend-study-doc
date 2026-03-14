@@ -446,7 +446,6 @@ export default withMermaid(
 
 				config: (md) => {
 					// use more markdown-it plugins!
-					md.use(require('markdown-it-xxx'))
 				}
 			}
 		},

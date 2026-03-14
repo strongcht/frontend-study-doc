@@ -2,7 +2,7 @@
 import { h, defineComponent } from 'vue';
 export default defineComponent({
   props: {
-    default: {
+    defaultValue: {
       type: Number,
       default: 0,
     },
@@ -42,6 +42,11 @@ export default defineComponent({
       currentValue: "",
     };
   },
+  beforeUnmount() {
+    if (this.countInter != undefined && this.countInter != -1) {
+      clearInterval(this.countInter);
+    }
+  },
   methods: {
     startPlay(from, to) {
       from = parseFloat(from);
@@ -56,11 +61,11 @@ export default defineComponent({
 
       // 第一次计算，则从默认值开始算
       if (!from) {
-        from = this.default;
+        from = this.defaultValue;
       }
 
       // 如果正在倒计时，突然值又变化，则从当前值开始变化
-      if (this.countInter != undefined && this.countInter != -1) {
+      if (this.countInter !== undefined && this.countInter !== -1) {
         clearInterval(this.countInter);
         this.currentValue = from;
       }
@@ -83,7 +88,7 @@ export default defineComponent({
         interValue = Math.floor(interTotalValue / INTER_CHANGE_COUNT);
       }
 
-      if (parseInt(interValue) != interValue) {
+      if (parseInt(interValue) !== interValue) {
         interValue = parseFloat(interValue.toFixed(2));
       }
 
@@ -102,11 +107,11 @@ export default defineComponent({
           this.currentValue += interValue;
         }
 
-        if (parseInt(this.currentValue) != this.currentValue) {
+        if (parseInt(this.currentValue) !== this.currentValue) {
           this.currentValue = parseFloat(this.currentValue.toFixed(2));
         }
 
-        if (this.currentValue == to) {
+        if (this.currentValue === to) {
           clearInterval(this.countInter);
           this.countInter = -1;
         }

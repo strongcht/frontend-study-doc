@@ -9,7 +9,7 @@
   const source = ref(0);
 
   const output = useTransition(source, {
-    delay: 5000, // 延时 ms
+    delay: 200, // 延时 ms
     duration: 1000, // 执行周期 ms
     disabled: false, // 是否启用过渡效果
     onStarted() {

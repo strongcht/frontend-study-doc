@@ -3,7 +3,6 @@ import { SearchPlugin } from "vitepress-plugin-search";
 import { defineConfig } from "vite";
 import flexSearchIndexOptions from "flexsearch";
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import path from 'path';
 //default options
 const options = {
     ...flexSearchIndexOptions,

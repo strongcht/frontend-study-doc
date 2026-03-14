@@ -31,19 +31,24 @@ export default {
     const isCopyed = ref(false);
 
     const highlightedCode = computed(() => {
-      return Prism.highlight(props.code, Prism.languages[props.lang], props.lang);
+      const lang = Prism.languages[props.lang] ? props.lang : 'text';
+      return Prism.highlight(props.code, Prism.languages[lang], lang);
     });
 
     const handleToggle = () => {
       isOpen.value = !isOpen.value;
     };
 
-    const handleCopy = () => {
+    const handleCopy = async () => {
       isCopyed.value = true;
       setTimeout(() => {
         isCopyed.value = false;
       }, 1500);
-      navigator.clipboard.writeText(props.code);
+      try {
+        await navigator.clipboard.writeText(props.code);
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
     };
 
     return {
@@ -82,7 +87,6 @@ export default {
   user-select: none;
 
   &:hover {
-    cursor: pointer;
   }
 }
 

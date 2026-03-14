@@ -1,5 +1,5 @@
 <template>
- <div class="ellipsis-contanier">
+  <div class="ellipsis-container">
   <h2>超过指定行显示省略号</h2>
 
   <p>单行省略</p>
@@ -28,7 +28,7 @@ export default {
 
 
 <style lang="less" scoped>
-.ellipsis-contanier {
+.ellipsis-container {
   .box {
     width: 500px;
     border: 1px solid red;
