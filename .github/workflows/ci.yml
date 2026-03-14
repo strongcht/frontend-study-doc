@@ -42,14 +42,14 @@ jobs:
             rm -rf /usr/share/nginx/html/doc/*
 
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2
+        uses: appleboy/scp-action@master
         with:
-          SSH_PRIVATE_KEY: ${{ secrets.ALIYUN }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "docs/.vitepress/dist/"
-          REMOTE_HOST: ${{ secrets.ALIYUN_ECS_IP }}
-          REMOTE_USER: root
-          TARGET: "/usr/share/nginx/html/doc/"
+          host: ${{ secrets.ALIYUN_ECS_IP }}
+          username: root
+          key: ${{ secrets.ALIYUN }}
+          source: "docs/.vitepress/dist/"
+          target: "/usr/share/nginx/html/doc/"
+          strip_components: 1
 
       # - name: Deploy to Server
       #   uses: wlixcc/SFTP-Deploy-Action@v1.0 
