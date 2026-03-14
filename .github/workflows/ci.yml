@@ -38,6 +38,7 @@ jobs:
           username: root
           key: ${{ secrets.ALIYUN }}
           script: |
+            apt-get update && apt-get install -y rsync
             rm -rf /usr/share/nginx/html/doc/*
 
       - name: Deploy to Server
