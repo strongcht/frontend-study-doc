@@ -49,7 +49,7 @@ jobs:
           key: ${{ secrets.ALIYUN }}
           source: "docs/.vitepress/dist/"
           target: "/usr/share/nginx/html/doc/"
-          strip_components: 1
+          strip_components: 3
 
       # - name: Deploy to Server
       #   uses: wlixcc/SFTP-Deploy-Action@v1.0 
