@@ -384,7 +384,56 @@ export default withMermaid(
 						},
 					],
 					collapsible: true, // 菜单是否为可折叠的
-					collapsed: true // 是否默认折叠 
+					collapsed: true // 是否默认折叠
+				},
+				{
+					text: 'AI Agent学习',
+					items: [
+						{
+							text: 'AI Agent 教程',
+							items: [
+								{ text: 'AI Agent 教程', link: '/study/ai-study/ai-agent-tutorial' },
+								{ text: 'AI Agent 简介', link: '/study/ai-study/ai-agent-intro' },
+								{ text: 'AI Agent 核心组件', link: '/study/ai-study/ai-agent-core' },
+								{ text: 'AI Agent 工作原理', link: '/study/ai-study/ai-agent-working-principle' },
+								{ text: 'AI 底层架构', link: '/study/ai-study/ai-architecture' },
+								{ text: '大语言模型基础', link: '/study/ai-study/ai-agent-llm' },
+								{ text: '提示词工程', link: '/study/ai-study/prompt-engineering' },
+								{ text: 'Token 词元', link: '/study/ai-study/token-intro' },
+								{ text: '推理与规划', link: '/study/ai-study/reasoning-planning' },
+								{ text: '向量数据库', link: '/study/ai-study/vector-database' },
+								{ text: 'RAG 与知识检索', link: '/study/ai-study/retrieval-augmented-generation' },
+								{ text: 'Agent 架构', link: '/study/ai-study/agent-architecture' },
+								{ text: 'Harness Engineering', link: '/study/ai-study/harness-engineering' },
+								{ text: 'Hermes Agent', link: '/study/ai-study/hermes-agent' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+						{
+							text: 'Python 实现智能体',
+							items: [
+								{ text: 'Python 实现 AI Agent', link: '/study/ai-study/python-ai-agent' },
+								{ text: '工具调用 Function Calling', link: '/study/ai-study/ai-agent-function-calling' },
+								{ text: '记忆系统设计', link: '/study/ai-study/ai-agent-memory-system-design' },
+								{ text: 'Python 智能体环境配置', link: '/study/ai-study/ai-agent-python-setup' },
+								{ text: 'AI Agent 问答实例', link: '/study/ai-study/ai-agent-answer-demo' },
+								{ text: 'Python 推理与规划', link: '/study/ai-study/python-reasoning-planning' },
+								{ text: 'Python RAG 与知识检索', link: '/study/ai-study/python-rag' },
+								{ text: '多智能体系统', link: '/study/ai-study/multi-agent-system' },
+								{ text: '工具与外部集成', link: '/study/ai-study/tools-integration' },
+								{ text: '多模态 Agent', link: '/study/ai-study/multimodal-agent' },
+								{ text: '评估、安全与对齐', link: '/study/ai-study/evaluation-safety-alignment' },
+								{ text: '生产部署与工程化', link: '/study/ai-study/production-deployment' },
+								{ text: '垂直应用场景', link: '/study/ai-study/vertical-applications' },
+								{ text: 'Hugging Face Transformers', link: '/study/ai-study/hugging-face-transformers' },
+							],
+							collapsible: true,
+							collapsed: true
+						},
+					],
+					collapsible: true, // 菜单是否为可折叠的
+					collapsed: true // 是否默认折叠
 				}
 
 				],
